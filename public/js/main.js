@@ -2,7 +2,7 @@ console.log('main');
 
 var bs = 0;
 
-function progressBar(){   
+function progressBar() {
     /* 
     var date = new Date();
     var s = date.getSeconds();
@@ -14,9 +14,9 @@ function progressBar(){
     p.style.width = bs + '%';
 
     console.log(bs + '%');
-   
 
-    if(bs >= 100) {
+
+    if (bs >= 100) {
         bs = 0;
     }
 
@@ -27,3 +27,5 @@ function progressBar(){
 
 
 //setInterval(progressBar,100);
+
+//http://codepen.io/apredsa/pen/WjvbGK
