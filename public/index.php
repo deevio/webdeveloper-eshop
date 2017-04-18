@@ -15,11 +15,8 @@ include_once '../templates/footer.php';
 
 //file_get_contents("http://www.domenaaaa.sk/index.php");
 
-//file_get_contents("http://www.domena.sk/index.php")
 
 //echo preVar($_SERVER);
-//echo $_GET['page'];
-
 /*
 require_once '../classes/Router.php';
 //routes
