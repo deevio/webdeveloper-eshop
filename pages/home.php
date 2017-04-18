@@ -1,5 +1,35 @@
 <h1>Eshop</h1>
-<h2>Home</h2>
+<?php
+$zoznamKnih = ['starec a more', 'Valibuk', 'Cestou necestou'];
+$content = 'Toto je homepage';
+include '../templates/layout.php';
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!--
 <div class="alert alert-success" role="alert">success...</div>
@@ -17,7 +47,7 @@
 
 <?php 
 /*
-echo 'premenna p je: '. $_POST['p'] . '<br>';
+echo 'premenna p je: '. $_GET['p'] . '<br>';
 
 $p = $_GET['page'];
 
