@@ -18,7 +18,7 @@ $data = [
 	'books' => $listOfBooks,
 ];
 
-
+echo $idBook;
 
 $content = getContent(
 	'../templates/book.php',

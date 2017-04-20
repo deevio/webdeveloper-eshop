@@ -16,7 +16,7 @@ function slug($bookTitle) {
 };
 
 /**
- * valid 
+ * url of books
  * @param string $bookTitle - title
  * @param int $bookId - id
  * @return string $url -  url of book
