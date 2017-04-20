@@ -1,1 +1,10 @@
-<h1>Kontakt</h1>
+<?php 
+$data = [];
+$content = getContent(
+	'../templates/kontakt.php',
+	$data
+);
+
+include '../templates/layout.php';
+
+?>

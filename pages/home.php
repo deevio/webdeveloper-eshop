@@ -1,7 +1,14 @@
-<h1>Eshop</h1>
 <?php
-$zoznamKnih = ['starec a more', 'Valibuk', 'Cestou necestou'];
-$content = 'Toto je homepage';
+$zoznamClankov = [1, 2, 3];
+$data = ['zoznamClankov' => $zoznamClankov];
+
+
+$content = getContent(
+	'../templates/home.php',
+	$data
+);
+
+
 include '../templates/layout.php';
 ?>
 
