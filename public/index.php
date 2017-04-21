@@ -20,8 +20,8 @@ Router::route('GET', '/', function($url){
 });
  
 
-Router::route('GET', '/kontakt', function($url){
-  include '../pages/kontakt.php';
+Router::route('GET', '/contact', function($url){
+  include '../pages/contact.php';
 });
 
 Router::route('GET', '/books', function($url){

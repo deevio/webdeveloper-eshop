@@ -9,7 +9,7 @@ for($i = 1; $i < 100; $i++){
 		'id' => $i,
 		'title' => 'Pohyblivy sviatok',
 		'cena' => rand(1, 100),
-		'url' => buildBookUrl('Pohyblivy sviatok', $i), 
+		'url' => buildBookUrl('Študenti   Gašparovi ', $i), 
 	];
 };
 

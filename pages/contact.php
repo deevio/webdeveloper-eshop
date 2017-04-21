@@ -1,7 +1,7 @@
 <?php 
 $data = [];
 $content = getContent(
-	'../templates/kontakt.php',
+	'../templates/contact.php',
 	$data
 );
 
