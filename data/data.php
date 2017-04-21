@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 
 $listOfBooks = [];
 
@@ -19,14 +18,5 @@ $data = [
 	'idBook' => $idBook,
 	'slug' => $slug,
 ];
-
-
-
-$content = getContent(
-	'../templates/book.php',
-	$data
-);
-
-include '../templates/layout.php';
 
 ?>

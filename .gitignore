@@ -1,2 +1,2 @@
 .sass-cache/
-db.connect.php
+config/db.php
