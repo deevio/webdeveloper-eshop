@@ -5,11 +5,7 @@
         <br>
         Bookstore s.r.o.<br>
         Lievancova 6<br>
-        Kosice 04001<br>
-       <a href="mailto:bookstroe@bookstore.sk">bookstroe@bookstore.sk</a>
-       <br>
-
+        04001 Kosice <br><br>
+       <a href="mailto:bookstore@bookstore.sk">bookstroe@bookstore.sk</a><br><br>   
     </p>
 </div>
-
-<hr>

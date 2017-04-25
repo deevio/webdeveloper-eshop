@@ -2,6 +2,7 @@
   <div class="row">
       <div class="col-lg-12">
           <h3>Latest Books</h3>
+          <br>
       </div>
   </div>
   <!-- /.row -->

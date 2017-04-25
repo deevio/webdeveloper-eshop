@@ -23,8 +23,8 @@ function thumbnail($title, $excerpt, $price, $url, $imgUrl) {
                             <p>' . $excerpt . '</p>
                             <p><strong>' . $price . ' </strong> EUR</p>
                             <p>
-                                <a href="#" class="btn btn-primary">Buy Now!</a> 
-                                <a href="' . $url . '" class="btn btn-default"title="' . $title . '" >More Info</a>
+                                <a href="#" class="btn btn-success">Buy Now!</a> 
+                                <a href="' . $url . '" class="btn btn-default" title="' . $title . '" >More Info</a>
                             </p>
                         </div>
                     </div>

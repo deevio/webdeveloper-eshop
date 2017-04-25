@@ -1,2 +1,2 @@
-<h1>Podstranka nebola najdena...</h1>
-<p>Skuste si pozriet nase  <a href="/books" title="Knihy">knihy</a>
+<h1>Page not found...</h1>
+<p>See our books <a href="/books" title="Knihy">knihy</a>

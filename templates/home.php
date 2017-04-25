@@ -7,8 +7,8 @@
     <br><br>
     </p>
     <hr>
-    <p><a class="btn btn-primary btn-large" href="/books">Books</a>
+    <p><a class="btn btn-success btn-large" href="/books">Books</a>
     </p>
 </div>
 
-<hr>
+
