@@ -9,8 +9,9 @@
 html, body {
   width: 100%;
   height: 100%;
-  background: -webkit-linear-gradient(top, lightgreen, white);
-  background: linear-gradient(top, lightgreen, white);
+  background: -webkit-linear-gradient(lightgreen, white 60%, white);
+  background: linear-gradient(lightgreen, white 60%, white);
+  background-attachment: fixed;
   padding: 1rem; }
 
 /*# sourceMappingURL=style.css.map */

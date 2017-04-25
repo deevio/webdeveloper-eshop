@@ -10,7 +10,8 @@ require_once '../config/db.php';
 require_once '../classes/Router.php';
 require_once '../functions/content.php';
 require_once '../functions/slug.php';
-//require_once '../functions/html.php';
+require_once '../functions/html.php';
+require_once '../functions/thumbnail.php';
 //require_once '../data/data.php';
 
 

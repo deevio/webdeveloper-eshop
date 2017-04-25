@@ -3,7 +3,7 @@
 
 $listOfBooks = [];
 
-for($i = 1; $i < 100; $i++){
+for($i = 1; $i <= 40; $i++){
 	$listOfBooks[] = 
 	(object) [
 		'id' => $i,

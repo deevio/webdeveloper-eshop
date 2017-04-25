@@ -1,8 +1,28 @@
-<h1>Knihy</h1>
+<!-- Title -->
+  <div class="row">
+      <div class="col-lg-12">
+          <h3>Latest Books</h3>
+      </div>
+  </div>
+  <!-- /.row -->
 
 <?php 
 
+foreach($books as $book => $listOfBooks){ 
 
+
+    $excerpt = 'Lorem ipsum  Lorem ipsum Lorem ipsum Lorem ipsum ';
+    $imgUrl = 'https://placeimg.com/245/180/people/' . rand(1, 20);
+
+    echo thumbnail($listOfBooks -> title, $excerpt, $listOfBooks -> cena, $listOfBooks -> url, $imgUrl);
+
+};
+
+
+
+
+
+/*
 echo ' <table class="table table-hover">
     <thead>
       <tr>
@@ -34,7 +54,6 @@ foreach($books as $book => $listOfBooks){
 };
 
 echo '</tbody> </table>';
-
-
+*/
 
 ?>

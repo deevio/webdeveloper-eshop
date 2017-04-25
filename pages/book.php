@@ -3,12 +3,12 @@
 
 $listOfBooks = [];
 
-for($i = 1; $i < 100; $i++){
+for($i = 1; $i <= 40; $i++){
 	$listOfBooks[] = 
 	(object) [
 		'id' => $i,
 		'title' => 'Pohyblivy sviatok',
-		'cena' => rand(1, 100),
+		'cena' => rand(10, 100),
 		'url' => buildBookUrl('Pohyblivy sviatok', $i), 
 	];
 };

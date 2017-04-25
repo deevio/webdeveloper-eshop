@@ -1,6 +1,7 @@
 
    <!-- Static navbar -->
-      <nav class="navbar navbar-default">
+   <header>
+      <nav class="navbar navbar-default">        
         <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -9,7 +10,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-bookmark"></span> BOOKS</a>
+            <a class="navbar-brand" href="#"><img src="/dist/images/bookstore.png" alt="bookstore"  width="60" class="align-middle" /></a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -21,3 +22,4 @@
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
       </nav>
+    </header>
