@@ -14,4 +14,12 @@ html, body {
   background-attachment: fixed;
   padding: 1rem; }
 
+.thumbnail img {
+  transition: transform 0.1s ease;
+  transform: scale(1); }
+
+.thumbnail img:hover {
+  transform: scale(1.1);
+  cursor: pointer; }
+
 /*# sourceMappingURL=style.css.map */

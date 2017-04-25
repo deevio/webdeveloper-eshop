@@ -1,31 +1,26 @@
-console.log('main');
 
-var bs = 0;
+$(document).ready(function(){
 
-function progressBar() {
-    /* 
-    var date = new Date();
-    var s = date.getSeconds();
-    var p = document.getElementById('bar');
-    p.style.width = s + '%';
-    */
+    console.log('ok');
+    
+    $.get(
+        'http://eshop/data/books'
+    )
+    
+    .done(function( data ) {
 
-    var p = document.getElementById('bar');
-    p.style.width = bs + '%';
+        //console.table(data);
 
-    console.log(bs + '%');
+        $.each( data, function(index, kniha){
+            
+            console.log(kniha);
 
+        });
 
-    if (bs >= 100) {
-        bs = 0;
-    }
-
-    bs++;
-
-};
+        $('#books');
 
 
 
-//setInterval(progressBar,100);
+    });
 
-//http://codepen.io/apredsa/pen/WjvbGK
+});

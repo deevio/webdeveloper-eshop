@@ -17,3 +17,12 @@ html, body
     background: linear-gradient($bgc, lighten($bgc,70%) 60%, lighten($bgc,90%))
     background-attachment: fixed
     padding: 1rem    
+
+
+.thumbnail img
+    transition: transform .1s ease
+    transform: scale(1) 
+.thumbnail img:hover    
+    transform: scale(1.1) 
+    cursor: pointer
+  

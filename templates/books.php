@@ -7,13 +7,13 @@
   </div>
   <!-- /.row -->
 
-<?php 
+<?php
 
 foreach($books as $book => $listOfBooks){ 
 
 
     $excerpt = 'Lorem ipsum  Lorem ipsum Lorem ipsum Lorem ipsum ';
-    $imgUrl = 'https://placeimg.com/245/180/people/' . rand(1, 20);
+    $imgUrl = 'https://placeimg.com/345/280/people/' . rand(1, 20);
 
     echo thumbnail($listOfBooks -> title, $excerpt, $listOfBooks -> cena, $listOfBooks -> url, $imgUrl);
 

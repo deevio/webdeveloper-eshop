@@ -53,6 +53,11 @@ Router::route('GET', '/admin/books', function($url){
   include '../pages/admin/books.php';
 });
 
+//data
+Router::route('GET', '/data/books', function($url){
+  include '../pages/data/books.php';
+});
+
 Router::execute();
 
 

@@ -13,10 +13,15 @@
             <a class="navbar-brand" href="#"><img src="/dist/images/bookstore.png" alt="bookstore"  width="60" class="align-middle" /></a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
+
             <ul class="nav navbar-nav">
               <li <?php echo ($url == '/') ? 'class="active"' : ''; ?> ><a href="/">Home</a></li>
               <li <?php echo ($url == '/books') ? 'class="active"' : ''; ?> ><a href="/books">Books</a></li>
               <li <?php echo ($url == '/contact') ? 'class="active"' : ''; ?> ><a href="/contact">Contact</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li <?php echo ($url == '/admin/books') ? 'class="active"' : ''; ?>><a href="/admin/books">Admin</a></li>   
             </ul>
      
           </div><!--/.nav-collapse -->
