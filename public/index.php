@@ -5,6 +5,7 @@ var_dump($vysledok);
 
 die;
 */
+//header('Content-type: text/json');
 
 require_once '../config/db.php';
 require_once '../classes/Router.php';
@@ -13,6 +14,16 @@ require_once '../functions/slug.php';
 require_once '../functions/html.php';
 require_once '../functions/thumbnail.php';
 //require_once '../data/data.php';
+
+
+
+//preVar($listOfBooks);
+
+//json_decode();
+//echo json_encode($listOfBooks); //from php to json
+//echo '<br>';
+//echo json_decode($listOfBooks); // from json to php
+//die;
 
 
 
@@ -37,6 +48,10 @@ Router::route('GET', '/error', function($url){
   include '../pages/404.php';
 });
 
+
+Router::route('GET', '/admin/books', function($url){
+  include '../pages/admin/books.php';
+});
 
 Router::execute();
 
