@@ -6,7 +6,7 @@ $content = getContent(
 	$data
 );
 
-include '../templates/layout-admin.php';
+include '../templates/admin/layout.php';
 
 
 

@@ -1,6 +1,6 @@
 <h3>Admin page</h3>
 
-<table class="table" id="zoznamKnih">
+<table class="table table-condensed" id="zoznamKnih">
 
 
 </table>
