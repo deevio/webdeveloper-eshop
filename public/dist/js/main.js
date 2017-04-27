@@ -3,7 +3,7 @@ $(document).ready(function() {
     //console.log('ok');
 
     $.get(
-        'http://eshop:8888/data/books'
+        'http://eshop/data/books'
     )
 
     .done(function(data) {
