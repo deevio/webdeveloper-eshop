@@ -10,7 +10,7 @@ echo '<pre>';
 var_dump($_COOKIE);
 echo '</pre>';
 
-*/
+
 
 echo session_save_path();
 $_SESSION['imja'] = 'oneeee';
@@ -21,7 +21,7 @@ var_dump($_SESSION);
 echo '</pre>';
 
 die;
-
+*/
 
 /*
 $match = preg_match('/(\w+) (\w+)/', 'Meno Priezvisko', $vysledok); 
