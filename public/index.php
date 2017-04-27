@@ -1,4 +1,28 @@
 <?php
+
+session_start();
+/*
+setcookie('ok', '1');
+setcookie('okk', '11');
+setcookie('menoooo', 'j', 1493942400, '/'); ///time must be to the future
+//setcookie('ok', null, -1,  '/');
+echo '<pre>';
+var_dump($_COOKIE);
+echo '</pre>';
+
+*/
+
+echo session_save_path();
+$_SESSION['imja'] = 'oneeee';
+$_SESSION['uuj'] = 'dvaaa';
+
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+
+die;
+
+
 /*
 $match = preg_match('/(\w+) (\w+)/', 'Meno Priezvisko', $vysledok); 
 var_dump($vysledok);
@@ -56,6 +80,10 @@ Router::route('GET', '/admin/books', function($url){
 //data
 Router::route('GET', '/data/books', function($url){
   include '../pages/data/books.php';
+});
+
+Router::route('GET', '/data/book/(\d+)', function($url, $idBook){
+  include '../pages/data/book.php';
 });
 
 Router::execute();
