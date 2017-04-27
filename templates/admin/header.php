@@ -15,4 +15,5 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                <?php //include 'login-form.php'; ?>
                 <?php include 'nav-top.php'; ?>

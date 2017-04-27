@@ -50,7 +50,7 @@ $(document).ready(function() {
             // console.log(a);  
 
         });
-        var a = $('#zoznamKnih').html(books);
+        var a = $('#listOfBooks').html(books);
 
     });
 
