@@ -4,7 +4,8 @@
 
                  <hr>
                 <!-- Footer -->
-                <footer>
+                <footer>     
+                <?php include 'last-viewed-items.php'; ?>           
                     <div class="row">
                         <div class="col-lg-12">
                             <p> &copy; BOOKSTORE <?= date('Y', time()); ?></p>

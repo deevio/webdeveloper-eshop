@@ -1,22 +1,29 @@
 <?php
 
+if(!in_array( $idBook, $_COOKIE['lastViewedBooks'] ) || !isset($_COOKIE['lastViewedBooks'])){
 
-$listOfBooks = [];
+	$platiDo = time() + 7 * 24 * 3600;
 
-for($i = 1; $i <= 40; $i++){
-	$listOfBooks[] = 
-	(object) [
-		'id' => $i,
-		'title' => 'Pohyblivy sviatok',
-		'cena' => rand(10, 100),
-		'url' => buildBookUrl('Pohyblivy sviatok', $i), 
-	];
+	$cookieIndex = 0;
+	
+	$cookieIndex = count($_COOKIE['lastViewedBooks']);
+	
+
+	setcookie('lastViewedBooks[' . $cookieIndex . ']', $idBook, $platiDo, '/');
 };
 
 
+$lastBooks = $_COOKIE['lastViewedBooks'];
+
+
+$listOfBooks = [];
+
+$book = getBook($idBook);
+
 $data = [
-	'books' => $listOfBooks,
+	'books' => getAllBooks(),
 	'idBook' => $idBook,
+	'book'=> $book, 
 	'slug' => $slug,
 ];
 

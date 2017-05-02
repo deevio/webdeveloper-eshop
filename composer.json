@@ -1,0 +1,15 @@
+{
+    "name": "apredsa/eshop",
+    "description": "webdeveloper lessons",
+    "type": "project",
+    "require": {
+        "bacon/bacon-qr-code": "^1.0"
+    },
+    "license": "bsd",
+    "authors": [
+        {
+            "name": "apredsa",
+            "email": "apredsa+new@gmail.com"
+        }
+    ]
+}

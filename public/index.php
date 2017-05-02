@@ -37,6 +37,7 @@ require_once '../functions/content.php';
 require_once '../functions/slug.php';
 require_once '../functions/html.php';
 require_once '../functions/thumbnail.php';
+require_once '../functions/books.php';
 //require_once '../data/data.php';
 
 
