@@ -80,7 +80,7 @@ Router::route('GET', '/book/(.*)/(\d+)', function($url, $slug, $idBook){
   include '../pages/book.php';
 });
 
-Router::route('GET', '/cart', function($url){
+Router::route('GET', '/cart', function($url){ 
   include '../pages/cart.php';
 });
 
