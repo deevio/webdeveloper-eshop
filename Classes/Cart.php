@@ -8,20 +8,19 @@
     protected static $items;
 
 
-    public function __construct(){
+    public function init(){
 
         self::$items = & $_SESSION[self::_CART_];
+
         if(!self::$items) {
             self::$items = [];
         };
-    };
+    }
 
 
     public function getItems(){
         return self::$items;
-    };
-
-
+    }
 
 
     public static  function addToCart(Product $book, $quantity = 1){
@@ -33,29 +32,31 @@
 
         $_SESSION[_CART_][] = $item;
 
-    };
+    }
 
 
 
-
+/*
 
     public function removeFromCart($index){
 
         unset( $_SESSION[_CART_][$index] = $item );
         
-    };
+    }
 
    
 
      public function updateItem(){
         
-    };   
+    }  
 
 
      public function getSum(){
         
-    };       
-};
+    } 
+
+    */    
+}
 
 
 ?>

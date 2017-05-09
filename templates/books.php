@@ -6,7 +6,7 @@
       </div>
   </div>
   <!-- /.row -->
-
+<form method="post" action="/cart">
 <?php
 
 foreach($books as $book => $listOfBooks){ 
@@ -18,6 +18,7 @@ foreach($books as $book => $listOfBooks){
     echo thumbnail($listOfBooks -> id, $listOfBooks -> title, $excerpt, $listOfBooks -> cena, $listOfBooks -> url, $imgUrl);
 
 };
+
 
 
 
@@ -58,3 +59,5 @@ echo '</tbody> </table>';
 */
 
 ?>
+</form>
+

@@ -35,8 +35,15 @@ die;
 */
 //header('Content-type: text/json');
 
+use Classes\Router;
+use Classes\Cart;
+
+Cart::init();
+
+
+
 require_once '../config/db.php';
-require_once '../Classes/Router.php';
+//require_once '../Classes/Router.php';
 require_once '../functions/content.php';
 require_once '../functions/slug.php';
 require_once '../functions/html.php';
@@ -76,6 +83,12 @@ Router::route('GET', '/book/(.*)/(\d+)', function($url, $slug, $idBook){
 Router::route('GET', '/cart', function($url){
   include '../pages/cart.php';
 });
+
+Router::route('POST', '/cart', function($url){
+  include '../pages/cart.php';
+});
+
+
 
 Router::route('GET', '/error', function($url){
   include '../pages/404.php';

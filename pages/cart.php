@@ -1,7 +1,15 @@
 <?php
+use Classes\Cart;
+
+preVar($_POST);
+
+$data = [
+	'items' => Cart::getItems(),
+];
+
 
 $content = getContent(
-	'../templates/book.php',
+	'../templates/cart.php',
 	$data
 );
 
