@@ -1,5 +1,9 @@
 <?php
 
+require '../vendor/autoload.php';
+
+//die;
+
 session_start();
 /*
 setcookie('ok', '1');
@@ -32,7 +36,7 @@ die;
 //header('Content-type: text/json');
 
 require_once '../config/db.php';
-require_once '../classes/Router.php';
+require_once '../Classes/Router.php';
 require_once '../functions/content.php';
 require_once '../functions/slug.php';
 require_once '../functions/html.php';
@@ -67,6 +71,10 @@ Router::route('GET', '/books', function($url){
 
 Router::route('GET', '/book/(.*)/(\d+)', function($url, $slug, $idBook){
   include '../pages/book.php';
+});
+
+Router::route('GET', '/cart', function($url){
+  include '../pages/cart.php';
 });
 
 Router::route('GET', '/error', function($url){

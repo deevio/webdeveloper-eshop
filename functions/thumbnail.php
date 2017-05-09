@@ -12,7 +12,7 @@
  *
  */
 
-function thumbnail($title, $excerpt, $price, $url, $imgUrl) {
+function thumbnail($id, $title, $excerpt, $price, $url, $imgUrl) {
 
     $thumbnail = '    
                 <div class="col-md-3 col-sm-6 hero-feature">
@@ -25,6 +25,7 @@ function thumbnail($title, $excerpt, $price, $url, $imgUrl) {
                             <p>
                                 <a href="#" class="btn btn-success">Buy Now!</a> 
                                 <a href="' . $url . '" class="btn btn-default" title="' . $title . '" >More Info</a>
+                                <input type="checkbox" name="toCart" value="'. $id .'" />
                             </p>
                         </div>
                     </div>

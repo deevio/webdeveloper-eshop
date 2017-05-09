@@ -15,7 +15,7 @@ foreach($books as $book => $listOfBooks){
     $excerpt = 'Lorem ipsum  Lorem ipsum Lorem ipsum Lorem ipsum ';
     $imgUrl = 'https://placeimg.com/345/280/people/' . rand(1, 20);
 
-    echo thumbnail($listOfBooks -> title, $excerpt, $listOfBooks -> cena, $listOfBooks -> url, $imgUrl);
+    echo thumbnail($listOfBooks -> id, $listOfBooks -> title, $excerpt, $listOfBooks -> cena, $listOfBooks -> url, $imgUrl);
 
 };
 

@@ -1,5 +1,5 @@
 <h3>Admin page</h3>
-<form>
+<form method="post" action="/cart">
 <table class="table table-condensed" id="listOfBooks">
 
 
