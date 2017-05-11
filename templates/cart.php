@@ -2,7 +2,7 @@
 
 <form action="/cart" method="post">
 <table class="table table-striped">
-  <tr><th>Nazov</th><th>Cena</th><th>Mnozstvo</th><th>action</th></tr>
+  <tr><th>Name</th><th>Price</th><th>Quantity</th><th>Action</th></tr>
   <?php
     foreach ($knihyVKosiku as $infoOKnihe) {
     	$book = $infoOKnihe['item'];
@@ -10,7 +10,7 @@
     	echo '<tr>'
     	. '<td><a href="' . $book->getUrl() . '">' . $book->getTitle() . '</a>
     	  </td>'
-    	. '<td>' . $book->getPrice() . '</td>
+    	. '<td>' . $book->getPrice() . '</td>S
     	<td>' . $mnozstvo . '</td>'
     	. '<td><input type="checkbox" name="zKosika[]" value="' . $book->getId()  . '" /></td>
     	</tr>';

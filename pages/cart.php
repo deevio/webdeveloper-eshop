@@ -1,7 +1,7 @@
 <?php
 use Classes\Cart;
 
-preVar($_POST);
+//preVar($_POST);
 
 $data = [
 	'items' => Cart::getItems(),
