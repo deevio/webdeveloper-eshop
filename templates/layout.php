@@ -5,6 +5,7 @@ include_once '../templates/header.php';
 <div id="content"><?= $content; ?></div>
 
 <?php
+/*
 if( isset($_COOKIE['lastViewedBooks']) ){
 
     $count = count($_COOKIE['lastViewedBooks']);
@@ -28,6 +29,7 @@ if( isset($_COOKIE['lastViewedBooks']) ){
 
     };
 };
+*/
 ?>
 
 <?php

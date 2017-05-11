@@ -1,5 +1,5 @@
 <?php 
-
+$idPage = null;
 
 $listOfBooks = [];
 

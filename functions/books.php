@@ -1,4 +1,5 @@
 <?php
+use Classes\Kniha;
 
 /**
  * Get all books
@@ -7,21 +8,20 @@
 
 
 function getAllBooks() {
+	
+	$listOfBooks = [];
+	for ($i=1; $i < 101; $i++) {
+		$knihaObject = new Kniha(
+			$i,
+			'knizka moja',
+			rand(1, 100)
+		);
 
-    for($i = 1; $i <= 40; $i++){
-        $listOfBooks[$i] = 
-        (object) [
-            'id' => $i,
-            'title' => 'Pohyblivy sviatok',
-            'cena' => rand(10, 100),
-            'url' => buildBookUrl('Pohyblivy sviatok', $i), 
-        ];
-    };
+		$listOfBooks[$i] = $knihaObject;
+	}
 
-    return $listOfBooks;
-
-};
-
+	return $listOfBooks;	
+}
 
 /**
  * Get book

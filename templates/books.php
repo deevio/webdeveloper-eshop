@@ -9,13 +9,13 @@
 <form method="post" action="/cart">
 <?php
 
-foreach($books as $book => $listOfBooks){ 
+foreach($books as $book){ 
 
 
     $excerpt = 'Lorem ipsum  Lorem ipsum Lorem ipsum Lorem ipsum ';
     $imgUrl = 'https://placeimg.com/345/280/people/' . rand(1, 20);
 
-    echo thumbnail($listOfBooks -> id, $listOfBooks -> title, $excerpt, $listOfBooks -> cena, $listOfBooks -> url, $imgUrl);
+    echo thumbnail($book->getId(), $book->getTitle() , $excerpt, $book->getPrice(), $book->getUrl(), $imgUrl);
 
 };
 
@@ -59,6 +59,7 @@ echo '</tbody> </table>';
 */
 
 ?>
+<input type="submit" value="Vlozit do Kosika" name="vlozKnihy" class="btn button-succes pull-right"/>
 </form>
 
 
@@ -68,6 +69,6 @@ echo '</tbody> </table>';
 
  pagination( 'books', $books, 10, $idPage );
 
-
+//echo $idPage . 'gfg';
 ?>
 

@@ -42,7 +42,7 @@ $data = [
  *
  */
 
-  function pagination( $slug, $products, $itemsPerPage = 10, $idPage ){
+  function pagination( $slug, $products, $itemsPerPage = 10, $idPage  ){
 
     $allItems = count( $products );
     $li = ceil( $allItems/$itemsPerPage );
@@ -53,7 +53,7 @@ $data = [
     for($p = 1; $p <= $li; $p++){        
         $pagination .= '<li ';
         $pagination .=  ( $idPage == $p )   ? ' class="active" ' : '';
-        $pagination .= ' ><a ' . $activePage .' href="/' . $slug. '/' . $p . '">' . $p . '</a></li>';
+        $pagination .= ' ><a href="/' . $slug. '/' . $p . '">' . $p . ' '. $idPage . '</a></li>';
     };
     
     $pagination .= '</ul>';

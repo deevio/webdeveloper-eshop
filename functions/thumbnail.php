@@ -25,7 +25,7 @@ function thumbnail($id, $title, $excerpt, $price, $url, $imgUrl) {
                             <p>
                                 <input type="submit" value="Buy Now!" class="btn btn-success" name="addItem"/>
                                 <a href="' . $url . '" class="btn btn-default" title="' . $title . '" >More Info</a>
-                                <input type="checkbox" name="toCart[]" value="'. $id .'" />
+                                <input type="checkbox" name="doKosika[]" value="' . $id . '" />
                             </p>
                         </div>
                     </div>
