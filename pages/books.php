@@ -5,6 +5,7 @@ $listOfBooks = [];
 
 $data = [
 	'books' => getAllBooks(),
+	'idPage'=> $idPage,
 ];
 
 

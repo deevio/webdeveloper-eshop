@@ -22,6 +22,7 @@
 
             <ul class="nav navbar-nav navbar-right">
               <li <?php echo ($url == '/admin/books') ? 'class="active"' : ''; ?>><a href="/admin/books">Admin</a></li>   
+              <li <?php echo ($url == '/cart') ? 'class="active"' : ''; ?>><a href="/cart">Cart</a></li>   
             </ul>
      
           </div><!--/.nav-collapse -->

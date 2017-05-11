@@ -61,3 +61,13 @@ echo '</tbody> </table>';
 ?>
 </form>
 
+
+<?php 
+//echo count($books) ; echo $idPage; 
+//pagination( $books, 10, $idPage );
+
+ pagination( 'books', $books, 10, $idPage );
+
+
+?>
+

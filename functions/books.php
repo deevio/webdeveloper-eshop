@@ -26,7 +26,7 @@ function getAllBooks() {
 /**
  * Get book
  * @param integer $idBook  - id book
- * @return 
+ * @return object $oneBook - book
  */
 
  function getBook($idBook){
