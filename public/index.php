@@ -2,6 +2,37 @@
 
 require '../vendor/autoload.php';
 
+try {
+    
+    $db = new PDO(
+        'mysql:host=localhost;dbname=eshop;charsset=utf8',
+        'divio',
+        'Ixlg23q8xPmIPx0j'
+    );
+
+
+} catch (Exception $e) {
+    echo 'Nepodarilo sa pripojit k DB - ' .
+    $e->getMessage();
+    die();
+}
+
+$query = 'INSERT INTO `eshop` (title, price, description) ';
+for($i = 1; $i <= 100; $ i++){
+
+  $query .= ' VALUES ("Kniha' , ' . rand(5, 200) . ', 'lorem ipsum dolor"), ';
+
+}
+$db->query( $query );
+
+echo 'pripojene';
+
+
+die;
+
+
+
+
 //die;
 
 session_start();
