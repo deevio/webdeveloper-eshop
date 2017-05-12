@@ -2,12 +2,14 @@
 
 require '../vendor/autoload.php';
 
+/*
+
 try {
     
     $db = new PDO(
-        'mysql:host=localhost;dbname=eshop;charsset=utf8',
-        'divio',
-        'Ixlg23q8xPmIPx0j'
+        'mysql:host=localhost;dbname=eshop;charset=utf8',
+        'apredsa',
+        'cxbHvBNWBT8qeePBEa2Uf'
     );
 
 
@@ -17,20 +19,26 @@ try {
     die();
 }
 
-$query = 'INSERT INTO `eshop` (title, price, description) ';
-for($i = 1; $i <= 100; $ i++){
+$query_keys = 'INSERT INTO `products` (title, price, description, excerpt) VALUES ';
+for($i = 1; $i <= 100; $i++){
 
-  $query .= ' VALUES ("Kniha' , ' . rand(5, 200) . ', 'lorem ipsum dolor"), ';
+  //$query .= ' VALUES ("Kniha '. $i .'" , "' . rand(5, 200) . '", "lorem ipsum dolor") ';
+  $query_values[] .= ' ("Kniha ' . $i .'" , "' . rand(11, 77) .'", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Lorem ipsum dolor sit amet...") ';
+  //if(){}
 
 }
+$query .= $query_keys;
+$query .= implode(',', $query_values );
 $db->query( $query );
+
+echo $query;
 
 echo 'pripojene';
 
 
 die;
 
-
+*/
 
 
 //die;
