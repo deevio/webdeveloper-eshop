@@ -1,10 +1,11 @@
 <?php 
+use Classes\Kniha;
 $idPage = null;
 
-$listOfBooks = [];
+$listOfBooks = new Kniha;
 
 $data = [
-	'books' => getAllBooks(),
+	'books' => $listOfBooks->getBooks() ,
 	'idPage'=> $idPage,
 ];
 

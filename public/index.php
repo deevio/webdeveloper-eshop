@@ -2,14 +2,18 @@
 
 require '../vendor/autoload.php';
 
+
+
+
 /*
+
 
 try {
     
     $db = new PDO(
         'mysql:host=localhost;dbname=eshop;charset=utf8',
-        'apredsa',
-        'cxbHvBNWBT8qeePBEa2Uf'
+        'divio',
+        'Ixlg23q8xPmIPx0j'
     );
 
 
@@ -19,13 +23,15 @@ try {
     die();
 }
 
+
+$query_values = [];
+$query = '';
+
 $query_keys = 'INSERT INTO `products` (title, price, description, excerpt) VALUES ';
-for($i = 1; $i <= 100; $i++){
-
-  //$query .= ' VALUES ("Kniha '. $i .'" , "' . rand(5, 200) . '", "lorem ipsum dolor") ';
+for($i = 1; $i <= 100; $i++){  
+  
   $query_values[] .= ' ("Kniha ' . $i .'" , "' . rand(11, 77) .'", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "Lorem ipsum dolor sit amet...") ';
-  //if(){}
-
+  
 }
 $query .= $query_keys;
 $query .= implode(',', $query_values );
@@ -34,11 +40,21 @@ $db->query( $query );
 echo $query;
 
 echo 'pripojene';
+echo $db->lastInsertId;
+
+$db->prepare('SELECT title FROM products WHERE title = :title LIMIT 1'); //:title
+$db->execute(array(
+  'title' => '', 
+));
+
+$db->bindValue();
+
+$db->fetchAll(); //array from result
 
 
 die;
-
 */
+
 
 
 //die;
