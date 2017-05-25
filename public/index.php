@@ -133,10 +133,15 @@ Router::route('GET', '/books', function($url){
 });
 
 
-
+/*
 Router::route('GET', '/books/(\d+)', function($url, $idPage){
   include '../pages/books.php';
 });
+*/
+Router::route('GET', '/books(.*)', function($url, $ord){
+  include '../pages/books.php';
+});
+
 
 
 Router::route('GET', '/book/(.*)/(\d+)', function($url, $slug, $idBook){

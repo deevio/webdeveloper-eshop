@@ -29,40 +29,75 @@ class Kniha extends Product {
 	}
 
 	public function getById( $idKnihy ) {
-	  // vytiahni z DB 1 knihu
-	  // SELECT ....
+	 
+	  //$allBooks = getAllBooks();
+	  //$oneBook = $allBooks[  $idKnihy  ];
 
-	  $allBooks = getAllBooks();
-	  $oneBook = $allBooks[  $idKnihy  ];
 
+		$this->db;
+		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  '  WHERE id = :id LIMIT 1 ');
+		$sth->execute(['id' => $idKnihy]);
+		$oneBook = $sth->fetchObject(__CLASS__);
 	  return $oneBook;
+
 	}
 
-	public function getBooks($limit = 10) {
-		global $db;
-		//$this->db
-		$sth = $db->prepare(' SELECT title, price FROM  ' . self::TABLE_NAME .  ' 
-		LIMIT ' . $limit . ' ' 
+	public function getBooks(
+		$from = 0, $limit = 12, $orderBy = 'id'
+		) {
+		$this->db;		
+		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  ' 
+		ORDER BY ' . $orderBy . '
+		LIMIT ' . $from . ', '. $limit . ' ' 
+
 		);
+
+
+echo  		' ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' ' ;
+
+
+
 
 		$sth->execute();
 
     $books = [];
-		while($book = $sth->fetchObject('Classes\Kniha')) {
+		while($book = $sth->fetchObject(__CLASS__)) {
 
-		  $books = $book;	
+		  $books[] =  $book;	
 		
 	  }
 
 		
 
-		//return $books;
+		return $books;
 
-		var_dump($books);
+		//var_dump($books);
 		
   }
 
 
+
+	public function getByIds(array $ids) {
+		$this->db;		
+		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  ' 
+		WHERE id IN ( ' . implode(',', $ids) . ' )' 		);
+
+		$sth->execute();
+
+    $books = [];
+		while($book = $sth->fetchObject(__CLASS__)) {
+
+		  $books[] =  $book;	
+		
+	  }
+
+		
+
+		return $books;
+
+		//var_dump($books);
+		
+  }
 
 
 

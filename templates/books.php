@@ -4,6 +4,8 @@
           <h3>Latest Books</h3>
           <br>
       </div>
+      <a href="?ord=nazov">Nazov</a> 
+      <a href="?ord=cena">Cena</a> 
   </div>
   <!-- /.row -->
 <form method="post" action="/cart">

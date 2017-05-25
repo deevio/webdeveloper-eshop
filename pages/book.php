@@ -18,7 +18,10 @@ $lastBooks = $_COOKIE['lastViewedBooks'];
 
 $listOfBooks = [];
 
-$book = getBook($idBook);
+
+$book = new Classes\Kniha;
+$book = $book->getById($idBook);
+
 
 $data = [
 	'books' => getAllBooks(),
