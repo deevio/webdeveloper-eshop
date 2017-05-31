@@ -1,6 +1,6 @@
 <?php 
 use Classes\Kniha;
-$idPage = null;
+
 
 $getOrd = $_GET['ord'];
 
@@ -18,6 +18,9 @@ if(isset($_GET['ord'])) {
 		'RAND()'
 	);
 
+	//order by title asc/desc
+	$orderBy .= (isset($_GET['sort' ]) && $_GET['sort' ] === 'dole') ? ' DESC ' : ' ASC ';
+
 } else {
 
 	$orderBy = 'RAND()';
@@ -32,7 +35,10 @@ $listOfBooks = new Kniha;
 
 $data = [
 	'books' => $listOfBooks->getBooks($start, $limit, $orderBy) ,
-	'idPage'=> $idPage,
+	'idPage'=>  (isset($idPage)) ? $idPage : 1,
+	'pocetKnih'=> $listOfBooks->getCount(),
+	
+	
 ];
 
 

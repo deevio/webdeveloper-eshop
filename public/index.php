@@ -128,19 +128,20 @@ Router::route('GET', '/contact', function($url){
   include '../pages/contact.php';
 });
 
-Router::route('GET', '/books', function($url){
+
+
+Router::route('GET', '/books/(\d+).*', function($url, $idPage){
   include '../pages/books.php';
 });
 
 
-/*
-Router::route('GET', '/books/(\d+)', function($url, $idPage){
+Router::route('GET', '/books(.*)', function($url){
   include '../pages/books.php';
 });
-*/
-Router::route('GET', '/books(.*)', function($url, $ord){
-  include '../pages/books.php';
-});
+
+
+
+
 
 
 

@@ -34,7 +34,7 @@ $data = [
  * pagination of pages
  *
  * @param string $slug  - slug of items 
- * @param object $products - all products 
+ * @param integer $products - all products 
  * @param integer $itemsPerPage  - how many items per page
  * @param integer $idPage - id active page 
  *
@@ -42,9 +42,9 @@ $data = [
  *
  */
 
-  function pagination( $slug, $products, $itemsPerPage = 10, $idPage  ){
+  function pagination( $slug, $count, $itemsPerPage = 10, $idPage  ){
 
-    $allItems = count( $products );
+    $allItems =  $count ;
     $li = ceil( $allItems/$itemsPerPage );
 
 
@@ -53,13 +53,13 @@ $data = [
     for($p = 1; $p <= $li; $p++){        
         $pagination .= '<li ';
         $pagination .=  ( $idPage == $p )   ? ' class="active" ' : '';
-        $pagination .= ' ><a href="/' . $slug. '/' . $p . '">' . $p . ' '. $idPage . '</a></li>';
+        $pagination .= ' ><a href="/' . $slug. '/' . $p . '?' . http_build_query( $_GET ) . '">' . $p . ' </a></li>';
     };
     
     $pagination .= '</ul>';
 
 
-    echo $pagination;
+    return $pagination;
 
  }
 

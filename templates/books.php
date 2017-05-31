@@ -4,11 +4,11 @@
           <h3>Latest Books</h3>
           <br>
       </div>
-      <a href="?ord=nazov">Nazov</a> 
-      <a href="?ord=cena">Cena</a> 
+      <a href="<?= queryBuild('ord', 'nazov'); ?>">Nazov</a> 
+      <a href="<?= queryBuild('ord', 'cena'); ?>">Cena</a> 
   </div>
   <!-- /.row -->
-<form method="post" action="/cart">
+<form method="post"  action="/cart">
 <?php
 
 foreach($books as $book){ 
@@ -65,12 +65,12 @@ echo '</tbody> </table>';
 </form>
 
 
+<br><br>Celkom <?= $pocetKnih; ?> produktov<br><br>
+
 <?php 
-//echo count($books) ; echo $idPage; 
-//pagination( $books, 10, $idPage );
 
- pagination( 'books', $books, 10, $idPage );
+ echo pagination( 'books', $pocetKnih, 10, $idPage );
 
-//echo $idPage . 'gfg';
+//echo '<br>'. $idPage . ' id page';
 ?>
 

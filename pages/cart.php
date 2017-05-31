@@ -5,13 +5,30 @@ use Classes\Kniha;
 
 // vkladanie do kosika
 if (isset($_POST['vlozKnihy'])) {
+
+  	 $kniha = new Kniha;
+  	 $knihyKtoreChceDatDoKosika = $kniha->getByIds($_POST['doKosika']);	
   // var_dump($_POST);
 
-  foreach ($_POST['doKosika'] as $idKnihy) {
-  	// $kniha = new Kniha;
-  	$vlozenaKniha = getBook($idKnihy);
+  foreach ($knihyKtoreChceDatDoKosika as $vlozenaKniha) {
 
-  	Cart::addToCart($vlozenaKniha);
+  	 //$kniha = new Kniha;
+  	 //$vlozenaKniha = $kniha->getById($idKnihy);
+
+  	//Cart::addToCart($vlozenaKniha);
+
+		//add try catch
+		try {
+
+			Cart::addToCart($vlozenaKniha);
+
+		} catch (\Exception $exception) {
+
+			var_dump($exception->getMessage());
+			die;
+
+		}
+
   }
   
 }

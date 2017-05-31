@@ -5,6 +5,8 @@ class Kniha extends Product {
 	const TABLE_NAME = 'products';
 
 	protected $pocetStran;
+	protected $excerpt;
+
 
 	public function __construct(
 		$id = 0, $title = '', $price = 0
@@ -53,7 +55,7 @@ class Kniha extends Product {
 		);
 
 
-echo  		' ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' ' ;
+//echo  		' ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' ' ;
 
 
 
@@ -98,6 +100,31 @@ echo  		' ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' ' ;
 		//var_dump($books);
 		
   }
+
+
+
+	public function getCount() {
+
+		$this->db;		
+		$sth = $this->db->prepare(' SELECT COUNT(*) AS pocet FROM  ' . self::TABLE_NAME 	);		
+
+		$sth->execute();
+
+		$result = $sth->fetchAll();
+
+		return $result[0]['pocet'];
+
+
+	}
+
+	
+
+	public function __sleep() {
+
+		return ['id', 'title', 'price', 'description', 'excerpt', 'pocetStran' ];
+
+	}
+
 
 
 
