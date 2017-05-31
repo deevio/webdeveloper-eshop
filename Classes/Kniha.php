@@ -55,7 +55,7 @@ class Kniha extends Product {
 		);
 
 
-//echo  		' ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' ' ;
+echo  			'	ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' '  ;
 
 
 

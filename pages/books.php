@@ -27,8 +27,9 @@ if(isset($_GET['ord'])) {
 
 };
 
-$start = 0; 
+
 $limit = 12;
+$start = (!isset($idPage)) ? 0 : ($idPage * $limit - $limit); 
 
 
 $listOfBooks = new Kniha;
@@ -37,6 +38,7 @@ $data = [
 	'books' => $listOfBooks->getBooks($start, $limit, $orderBy) ,
 	'idPage'=>  (isset($idPage)) ? $idPage : 1,
 	'pocetKnih'=> $listOfBooks->getCount(),
+	'limit' => $limit,
 	
 	
 ];

@@ -61,15 +61,17 @@ echo '</tbody> </table>';
 */
 
 ?>
+<div class="clearfix"></div>
 <input type="submit" value="Vlozit do Kosika" name="vlozKnihy" class="btn button-succes pull-right"/>
 </form>
 
 
 <br><br>Celkom <?= $pocetKnih; ?> produktov<br><br>
 
+
 <?php 
 
- echo pagination( 'books', $pocetKnih, 10, $idPage );
+ echo pagination( 'books', $pocetKnih, $limit, $idPage );
 
 //echo '<br>'. $idPage . ' id page';
 ?>
