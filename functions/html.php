@@ -26,19 +26,21 @@ function preVar($post) {
  * replaces key value in url
  *
  *
- * @param string $key  - key
- * @param string $value  - value
+ * @param array $params - key, value 
  *
  * @return string $query 
  */
 
 
-    function queryBuild($key, $value){
+    function queryBuild($params){
         
-        //var_dump($_GET);
+        
+        $poleHodnot =  $_GET;
 
-        $poleHodnot = & $_GET;
-        $poleHodnot[$key] = $value;
+        foreach($params as $key => $value){
+            $poleHodnot[$key] = $value;
+        }
+        
 
         return '?' . http_build_query($poleHodnot);
 
@@ -59,16 +61,26 @@ function preVar($post) {
 
 
     function zoradQueryString($podlaCoho){
-       
-        //nastavit ?ord na to podla coho zoradujem
-        queryBuild('ord', $podlaCoho);
+     
 
-        if($podlaCoho === $_GET['ord'] ) {
+        if(isset($_GET['ord']) && $podlaCoho === $_GET['ord'] ) {
 
             $sort = (isset($_GET['sort']) &&  $_GET['sort']  === 'dole') ? 'hore' : 'dole';
+        } else {
 
-            queryBuild('sort', $sort );
-        }      
+            $sort = 'dole';
+        }
+
+              return      queryBuild(
+                [
+                  'sort' => $sort,
+                  'ord' => $podlaCoho,       
+                ]
+            ); 
+
+     
+
+
 
     }; 
   

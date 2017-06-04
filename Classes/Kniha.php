@@ -6,6 +6,8 @@ class Kniha extends Product {
 
 	protected $pocetStran;
 	protected $excerpt;
+	public $count;
+	//public $maxPrice;
 
 
 	public function __construct(
@@ -45,22 +47,47 @@ class Kniha extends Product {
 	}
 
 	public function getBooks(
-		$from = 0, $limit = 12, $orderBy = 'id'
+		$from = 0, $limit = 12, $orderBy = 'id',
+		$cena_od = 0,	$cena_do = NULL, $hladaj = NULL
 		) {
+
+
+		//$this->maxPrice = $this->getMaxPrice( self::TABLE_NAME, 'price' );
+		$whereSql = ' price >= :cena_od AND price <= :cena_do ';		
+		$whereHodnoty = [				
+				'cena_od' => $cena_od,
+				'cena_do' => ($cena_do === NULL) ?  '99999' : $cena_do, 
+			];
+			// 99999 get max price
+
+			if($hladaj != NULL) {
+				$whereSql .= '  AND  MATCH (title, description, excerpt) AGAINST (:hladaj) ';
+				$whereHodnoty['hladaj'] = $hladaj;
+			}
+
+
 		$this->db;		
 		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  ' 
+
+		WHERE  '.$whereSql.'
+
 		ORDER BY ' . $orderBy . '
 		LIMIT ' . $from . ', '. $limit . ' ' 
 
 		);
 
+/*
+echo ' SELECT * FROM  ' . self::TABLE_NAME .  ' 
 
-echo  			'	ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' '  ;
+		WHERE  '.$whereSql.'
 
+		ORDER BY ' . $orderBy . '
+		LIMIT ' . $from . ', '. $limit . ' ';
+*/
 
+		$sth->execute( $whereHodnoty );
+		
 
-
-		$sth->execute();
 
     $books = [];
 		while($book = $sth->fetchObject(__CLASS__)) {
@@ -69,7 +96,7 @@ echo  			'	ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' '  ;
 		
 	  }
 
-		
+		$this->count = $this->getCount($whereSql , $whereHodnoty);
 
 		return $books;
 
@@ -93,7 +120,7 @@ echo  			'	ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' '  ;
 		
 	  }
 
-		
+
 
 		return $books;
 
@@ -103,12 +130,18 @@ echo  			'	ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' '  ;
 
 
 
-	public function getCount() {
+	public function getCount($whereSql , $whereHodnoty) {
 
 		$this->db;		
-		$sth = $this->db->prepare(' SELECT COUNT(*) AS pocet FROM  ' . self::TABLE_NAME 	);		
+		$sth = $this->db->prepare(' SELECT COUNT(*) AS pocet FROM  ' . self::TABLE_NAME  . '
+		
+		
+		 WHERE  ' . $whereSql
 
-		$sth->execute();
+
+		 	);		
+
+		$sth->execute( $whereHodnoty );
 
 		$result = $sth->fetchAll();
 
@@ -117,7 +150,30 @@ echo  			'	ORDER BY ' . $orderBy . '		LIMIT ' . $from . ', '. $limit . ' '  ;
 
 	}
 
+
+
+/*
+public function getMaxPrice( $tableName, $columnName ) {
 	
+		$this->db;		
+		$sth = $this->db->prepare(' SELECT ' . $columnName . ' AS maxPrice  FROM  ' . $tableName . '		
+		
+		ORDER BY ' . $columnName . ' DESC LIMIT 1 '
+
+		 	);		
+
+		$sth->execute();
+
+		$result = $sth->fetchAll();
+
+		$maxPrice =  $result[0]['maxPrice'];
+
+		return $maxPrice;
+
+}	
+*/
+
+
 
 	public function __sleep() {
 
