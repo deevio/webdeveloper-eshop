@@ -2,6 +2,7 @@
 
 use Classes\Cart;
 use Classes\Kniha;
+use Classes\Objednavky;
 
 // vkladanie do kosika
 if (isset($_POST['vlozKnihy'])) {
@@ -49,6 +50,26 @@ if (isset($_POST['objednat'])) {
   // var_dump($_POST);
 	//zapise objednavku do db
 	//mail zakaznikovi
+
+	$valid = true;
+	if($valid){
+		//insert
+		$kosik = Cart::getItems();
+		$meno = $_POST['meno'];
+		$email = $_POST['email'];
+		$adresa = $_POST['adresa'];
+		$kosik = $kosik;
+
+		$objednavka = new Objednavky();
+		$objednavka->add(
+			$meno  ,
+			$email ,
+			$adresa ,
+			$kosik 
+		);
+
+
+	}
 
  
   
