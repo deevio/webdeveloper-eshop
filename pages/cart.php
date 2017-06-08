@@ -52,6 +52,8 @@ if (isset($_POST['objednat'])) {
 	//mail zakaznikovi
 
 	$valid = true;
+	//validation
+
 	if($valid){
 		//insert
 		$kosik = Cart::getItems();
@@ -60,13 +62,25 @@ if (isset($_POST['objednat'])) {
 		$adresa = $_POST['adresa'];
 		$kosik = $kosik;
 
+		
 		$objednavka = new Objednavky();
+
+		if(
 		$objednavka->add(
 			$meno  ,
 			$email ,
 			$adresa ,
-			$kosik 
-		);
+			$kosik )
+		) {
+
+			Cart::clearCart();
+			header('Location: /kupil');
+			die;
+
+		} else {
+			//nedikoncila sa objednavka
+
+		}
 
 
 	}

@@ -22,7 +22,13 @@
 
             <ul class="nav navbar-nav navbar-right">
               <li <?php echo ($url == '/admin/books') ? 'class="active"' : ''; ?>><a href="/admin/books">Admin</a></li>   
-              <li <?php echo ($url == '/cart') ? 'class="active"' : ''; ?>><a href="/cart">Cart</a></li>   
+              <li <?php echo ($url == '/cart') ? 'class="active"' : ''; ?>><a href="/cart">Cart</a></li> 
+              <?php// if(isset($_SESSION['user'])) { ?>
+              <li <?php echo ($url == '/orders') ? 'class="active"' : ''; ?>><a href="/orders">Orders</a></li>  
+              <li <?php echo ($url == '/registration') ? 'class="active"' : ''; ?>><a href="/registration">Registration</a></li> 
+              <li <?php echo ($url == '/login') ? 'class="active"' : ''; ?>><a href="/login">Login</a></li>  
+              <?php //} ?>
+
             </ul>
      
           </div><!--/.nav-collapse -->

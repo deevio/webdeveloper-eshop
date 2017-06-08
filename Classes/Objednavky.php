@@ -28,13 +28,15 @@ class Objednavky {
             ':date' => time(),
         ));
 
+        return true;
+
 
     }
 
 
      public function remove($id) {
 
-        $sql = 'DELETE  FROM  ' .  self::TABLE_NAME . ' WHERE  id = :id '   ;
+        $sql = 'DELETE  FROM  ' .  self::TABLE_NAME . ' WHERE  id = :id  LIMIT 1 '   ;
 
         $query = $this->db->prepare($sql);
 
@@ -51,7 +53,7 @@ class Objednavky {
 
         customer = :customer, email = :email, items = :items, address = :address 
 
-         WHERE id = :id'  ;
+         WHERE id = :id   LIMIT 1 ' ;
 
         $query = $this->db->prepare($sql);
 

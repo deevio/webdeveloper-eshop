@@ -58,7 +58,9 @@ class Cart {
 		}
 	}
 
-
+	public static function clearCart() {
+		unset($_SESSION[self::__CART__]);
+	}
 
 
 	public static function getSum() {
@@ -77,4 +79,7 @@ class Cart {
 
 		return $suma;
 	}
+
+
+	
 }

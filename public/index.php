@@ -129,7 +129,6 @@ Router::route('GET', '/contact', function($url){
 });
 
 
-
 Router::route('GET', '/books/(\d+).*', function($url, $idPage){
   include '../pages/books.php';
 });
@@ -138,8 +137,6 @@ Router::route('GET', '/books/(\d+).*', function($url, $idPage){
 Router::route('GET', '/books(.*)', function($url){
   include '../pages/books.php';
 });
-
-
 
 
 
@@ -154,7 +151,38 @@ Router::route('GET', '/cart', function($url){
 });
 
 Router::route('POST', '/cart', function($url){
-  include '../pages/cart.php';});
+  include '../pages/cart.php';
+});
+
+
+Router::route('GET', '/orders', function($url){
+  include '../pages/orders.php';
+});
+
+Router::route('POST', '/orders', function($url){
+  include '../pages/orders.php';
+});
+
+
+Router::route('GET', '/registration', function($url){
+  include '../pages/registration.php';
+});
+
+Router::route('POST', '/registration', function($url){
+  include '../pages/registration.php';
+});
+
+
+Router::route('POST', '/login', function($url){
+  include '../pages/login.php';
+});
+Router::route('POST', '/login', function($url){
+  include '../pages/login.php';
+});
+
+
+
+
 
 
 
