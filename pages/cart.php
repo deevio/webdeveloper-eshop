@@ -3,20 +3,43 @@
 use Classes\Cart;
 use Classes\Kniha;
 use Classes\Objednavky;
+use Classes\User;
+
+    $valid = true;
+
+
+if (isset($_POST['objednat'])) {
+
+    if ($_POST['meno'] == "") {
+
+        $valid = false;
+        $stav = 'Fill your name, please.';
+
+    } 
+
+    if ($_POST['email'] == "") {
+
+        $valid = false;
+        $stav = 'Fill your email, please.';
+
+    } 
+    if ($_POST['adresa'] == "") {
+
+        $valid = false;
+        $stav = 'Fill your address, please.';
+
+    } 
+}
+
+
 
 // vkladanie do kosika
 if (isset($_POST['vlozKnihy'])) {
 
   	 $kniha = new Kniha;
   	 $knihyKtoreChceDatDoKosika = $kniha->getByIds($_POST['doKosika']);	
-  // var_dump($_POST);
 
   foreach ($knihyKtoreChceDatDoKosika as $vlozenaKniha) {
-
-  	 //$kniha = new Kniha;
-  	 //$vlozenaKniha = $kniha->getById($idKnihy);
-
-  	//Cart::addToCart($vlozenaKniha);
 
 		//add try catch
 		try {
@@ -45,32 +68,41 @@ if (isset($_POST['zmazat'])) {
 }
 
 
-//objednava sa
-if (isset($_POST['objednat'])) {
-  // var_dump($_POST);
-	//zapise objednavku do db
-	//mail zakaznikovi
 
-	$valid = true;
-	//validation
+
+
+$meno = (isset($_POST['meno'])) ? $_POST['meno'] : '';
+$email = (isset($_POST['email'])) ? $_POST['email'] : '';
+$adresa = (isset($_POST['adresa'])) ? $_POST['adresa'] : ''; 
+
+
+$uzivatel = new User();
+$meno = (!isset($_POST['meno']) && isset($_SESSION['user'])) ?  $uzivatel->getUserInfo($_SESSION['user'], 'name') : $meno; 
+$email = (!isset($_POST['email']) && isset($_SESSION['user'])) ?  $uzivatel->getUserInfo($_SESSION['user'], 'email') : $email; 
+$adresa = (!isset($_POST['adresa']) && isset($_SESSION['user'])) ?  $uzivatel->getUserInfo($_SESSION['user'], 'address') : $adresa; 
+
+
+$kosik = Cart::getItems(); 	
+
+
+
+
+
+
+if (isset($_POST['objednat'])) {
+	
 
 	if($valid){
-		//insert
-		$kosik = Cart::getItems();
-		$meno = $_POST['meno'];
-		$email = $_POST['email'];
-		$adresa = $_POST['adresa'];
-		$kosik = $kosik;
+		//insert				
 
-		
 		$objednavka = new Objednavky();
 
 		if(
 		$objednavka->add(
-			$meno  ,
-			$email ,
-			$adresa ,
-			$kosik )
+			htmlentities($meno),
+			htmlentities($email),
+			htmlentities($adresa),
+			$kosik)
 		) {
 
 			Cart::clearCart();
@@ -78,22 +110,29 @@ if (isset($_POST['objednat'])) {
 			die;
 
 		} else {
-			//nedikoncila sa objednavka
+
+			$stav = 'Order failed!';
 
 		}
 
 
 	}
 
- 
   
 }
 
-// vytiahne z kosika a posli do template
+// vytiahne z kosika a posle do template
+
 $data = [
-  'knihyVKosiku' => Cart::getItems(),
+
+  	'knihyVKosiku' => Cart::getItems(),
 	'suma' => Cart::getSum(),
 	'mnozstvo' => count(Cart::getItems()),
+    'meno'=> (isset($meno)) ? $meno : '' ,
+    'email' => (isset($email)) ? $email : '' ,
+    'adresa' => (isset($adresa)) ? $adresa : '' ,    
+    'stav' => (isset($stav)) ? $stav : '' ,
+
 ];
 
 $content = getContent(

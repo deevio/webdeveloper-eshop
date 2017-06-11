@@ -3,7 +3,8 @@
     "description": "webdeveloper lessons",
     "type": "project",
     "require": {
-        "bacon/bacon-qr-code": "^1.0"
+        "bacon/bacon-qr-code": "^1.0",
+        "mpdf/mpdf": "^6.1"
     },
     "autoload": {
         "files": [

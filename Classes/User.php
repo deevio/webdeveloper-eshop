@@ -3,6 +3,8 @@
 class User {
    
    const TABLE_NAME = 'users';
+   const __USER__ = 'user';
+   const __CART__ = 'cart';
   
 
     public function __construct(){
@@ -12,12 +14,9 @@ class User {
 
 
 
-    public function hash($pass) {
-        
+    public function hash($pass) {       
         $hash = password_hash($pass, PASSWORD_BCRYPT );
-
         return $hash;
-
     }
   
 
@@ -30,7 +29,7 @@ class User {
         $query = $this->db->prepare($sql);
 
         $query->execute(array(
-            ':name' => $meno ,
+            ':name' => $meno,
             ':email' => $email,
             ':pass' => $this->hash($pass),           
             ':address' => $adresa,
@@ -38,7 +37,107 @@ class User {
         ));
 
         return true;
+    }
 
+
+    
+    public function login($email, $pass) {
+
+        $sql = 'SELECT id, pass FROM ' .  self::TABLE_NAME . '  WHERE 
+
+        email =  :email  LIMIT 1 ' ;
+
+        $query = $this->db->prepare($sql);
+
+        $query->execute(array(           
+            ':email' => $email,
+        ));
+        $result = $query->fetchAll();
+   
+        $id =  $result[0]['id'];
+		$hash = $result[0]['pass'];
+        $verify =  password_verify($pass, $hash);
+
+        if($verify) {
+            $_SESSION[self::__USER__] = $id;
+        }
+
+        return $verify;   
+          
+    }
+
+
+    public  function getUserInfo($id, $userInfo) {
+
+        $sql = ' SELECT ' . $userInfo . ' FROM ' .  self::TABLE_NAME . '  WHERE 
+
+        id =  :id  LIMIT 1 ';
+
+        $query = $this->db->prepare($sql);
+
+
+        $query->execute(array( 
+
+            ':id' => $id,
+            
+        ));
+
+        $result = $query->fetchAll();
+   
+        $resultUserInfo =  $result[0][$userInfo];
+
+        return  $resultUserInfo;
+
+    }
+
+    public function change($id, $meno, $email, $adresa) {
+
+        $sql = ' UPDATE ' .  self::TABLE_NAME . '  SET  name = :name, email = :email, address = :address   
+        
+        WHERE id = :id 
+        
+        LIMIT 1   '  ;
+
+        $query = $this->db->prepare($sql);
+
+        $query->execute(array(
+            ':id' => $id, 
+            ':name' => $meno,
+            ':email' => $email,                       
+            ':address' => $adresa,         
+        ));
+
+        return true;
+    }
+
+
+    public function changePass($id, $pass) {
+
+        $sql = ' UPDATE ' .  self::TABLE_NAME . ' 
+
+        SET pass = :pass 
+
+        WHERE id = :id 
+       
+        LIMIT 1 '  ;
+
+        $query = $this->db->prepare($sql);
+
+        $query->execute(array(
+            ':id' => $id,            
+            ':pass' => $this->hash($pass),                   
+        ));
+
+        return true;
+    }
+
+ 
+
+
+
+    public function logout() {
+         unset($_SESSION[self::__USER__] );
+         unset($_SESSION[self::__CART__]);
     }
     
 }

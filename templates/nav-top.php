@@ -15,19 +15,28 @@
           <div id="navbar" class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav">
-              <li <?php echo ($url == '/') ? 'class="active"' : ''; ?> ><a href="/">Home</a></li>
-              <li <?php echo ($url == '/books') ? 'class="active"' : ''; ?> ><a href="/books">Books</a></li>
-              <li <?php echo ($url == '/contact') ? 'class="active"' : ''; ?> ><a href="/contact">Contact</a></li>
+              <li <?php echo ($url == '/') ? 'class="active"' : ''; ?> ><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+              <li <?php echo ($url == '/books') ? 'class="active"' : ''; ?> ><a href="/books"><span class="glyphicon glyphicon-book"></span>  Books</a></li>
+              <li <?php echo ($url == '/contact') ? 'class="active"' : ''; ?> ><a href="/contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-              <li <?php echo ($url == '/admin/books') ? 'class="active"' : ''; ?>><a href="/admin/books">Admin</a></li>   
-              <li <?php echo ($url == '/cart') ? 'class="active"' : ''; ?>><a href="/cart">Cart</a></li> 
-              <?php// if(isset($_SESSION['user'])) { ?>
-              <li <?php echo ($url == '/orders') ? 'class="active"' : ''; ?>><a href="/orders">Orders</a></li>  
-              <li <?php echo ($url == '/registration') ? 'class="active"' : ''; ?>><a href="/registration">Registration</a></li> 
-              <li <?php echo ($url == '/login') ? 'class="active"' : ''; ?>><a href="/login">Login</a></li>  
-              <?php //} ?>
+            <ul class="nav navbar-nav navbar-right">             
+                   
+
+              <?php if(!isset($_SESSION['user'])) { ?>
+              <li <?php echo ($url == '/registration') ? 'class="active"' : ''; ?>><a href="/registration">Registration</a></li>
+              <li <?php echo ($url == '/login') ? 'class="active"' : ''; ?>><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+              <?php } else { ?>
+              <li <?php echo ($url == '/admin/books') ? 'class="active"' : ''; ?>><a href="/admin/books">Admin</a></li> 
+              <li <?php echo ($url == '/user') ? 'class="active"' : ''; ?>><a href="/user"><span class="glyphicon glyphicon-user"></span> User info</a></li>
+              <li <?php echo ($url == '/orders') ? 'class="active"' : ''; ?>><a href="/orders"><span class="glyphicon glyphicon-list"></span> Orders</a></li> 
+              <li <?php echo ($url == '/logout') ? 'class="active"' : ''; ?>><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+              <?php } ?> 
+
+
+              <li <?php echo ($url == '/cart') ? 'class="active"' : ''; ?>><a href="/cart">  <span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li> 
+              
+              
 
             </ul>
      

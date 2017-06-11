@@ -6,9 +6,6 @@ use Classes\User;
 if (isset($_POST['registrovat'])) {
 
 
-   var_dump($_POST);
-	//zapise objednavku do db
-	//mail zakaznikovi
 
     $valid = true;
     $stav = NULL;
@@ -27,17 +24,19 @@ if (isset($_POST['registrovat'])) {
 
     } 
 
-    if ($_POST['pass1'] == "") {
 
-        $valid = false;
-        $stav = 'Fill your password, please.';
-
-    } 
 
     if ($_POST['pass2'] == "") {
 
         $valid = false;
         $stav = 'Fill your password again, please.';
+
+    } 
+    
+    if ($_POST['pass1'] == "") {
+
+        $valid = false;
+        $stav = 'Fill your password, please.';
 
     } 
 
@@ -54,10 +53,10 @@ if (isset($_POST['registrovat'])) {
 	if($valid){
 
 		//insert	
-		$meno = $_POST['meno'];
-		$email = $_POST['email'];
-		$adresa = $_POST['adresa'];
-		$pass = $_POST['pass1'];
+		$meno = htmlentities($_POST['meno']);
+		$email = htmlentities($_POST['email']);
+		$adresa = htmlentities($_POST['adresa']);
+		$pass = htmlentities($_POST['pass1']);
 
 		
 		$registracia = new User();
@@ -70,11 +69,13 @@ if (isset($_POST['registrovat'])) {
 			$pass )
 		) {
 			
-			//header('Location: /registroval');
-			//die;
+			header('Location: /registroval');
+			die;
 
 		} else {
-			//nedikoncila sa objednavka
+
+			$stav = 'Registration failed!';
+            
 		}
 
 	}

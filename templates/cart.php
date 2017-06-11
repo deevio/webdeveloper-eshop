@@ -5,12 +5,17 @@
 
 ?>
 <h3>Cart</h3>
+<br>
+<h4>Order form</h4>
+
+<h5 class="text-danger"><?= $stav; ?></h5>
 
 <form action="/cart" method="post">
 
-<input type="text" name="meno" value="<?=  (isset($_POST['meno'])) ? $_POST['meno'] : '' ; ?>" Placeholder="Name" class="form-control"/><br>
-<input type="email" name="email" value="<?= (isset($_POST['email'])) ? $_POST['email'] : '' ; ?>" Placeholder="Email" class="form-control" /><br>
-<input type="text" name="adresa" value="<?= (isset($_POST['adresa'])) ? $_POST['adresa'] : '' ; ?>" Placeholder="Addresss" class="form-control" /><br>
+<input type="text" required name="meno" value="<?= $meno; ?>" Placeholder="Name" class="form-control"/><br>
+<input type="email" required name="email" value="<?= $email; ?>" Placeholder="Email" class="form-control" /><br>
+<input type="text" required name="adresa" value="<?= $adresa; ?>" Placeholder="Address" class="form-control" /><br>
+
 
 <table class="table table-striped">
   <tr><th>Name</th><th>Price</th><th>Quantity</th><th>Action</th></tr>

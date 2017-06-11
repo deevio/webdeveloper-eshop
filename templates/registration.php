@@ -1,6 +1,7 @@
 <h3>Registration</h3>
+<br>
 
-<h4><?= $stav; ?></h4>
+<h4 class="text-danger"><?= $stav; ?></h4>
 
 <form action="/registration" method="post">
 
