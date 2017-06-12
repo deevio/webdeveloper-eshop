@@ -23,7 +23,7 @@ function thumbnail($id, $title, $excerpt, $price, $url, $imgUrl) {
                             <p>' . $excerpt . '</p>
                             <p><strong>' . priceFormat($price) . ' </strong> EUR</p>
                             <p>
-                                <input type="submit" value="Buy Now!" class="btn btn-success" name="addItem"/>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" name="addItem"/>
                                 <a href="' . $url . '" class="btn btn-default" title="' . $title . '" >More Info</a>
                                 <input type="checkbox" name="doKosika[]" value="' . $id . '" />
                             </p>

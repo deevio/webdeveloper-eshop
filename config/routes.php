@@ -47,6 +47,16 @@ Router::route('POST', '/orders', function($url){
 });
 
 
+
+Router::route('GET', '/order/(\d+).*', function($url, $idOrder){
+  include '../pages/order.php';
+});
+Router::route('POST', '/order/(\d+).*', function($url, $idOrder){
+  include '../pages/order.php';
+});
+
+
+
 Router::route('GET', '/registration', function($url){
   include '../pages/registration.php';
 });

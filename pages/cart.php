@@ -34,7 +34,7 @@ if (isset($_POST['objednat'])) {
 
 
 // vkladanie do kosika
-if (isset($_POST['vlozKnihy'])) {
+if (isset($_POST['vlozKnihy']) || isset($_POST['kupit'])) {
 
   	 $kniha = new Kniha;
   	 $knihyKtoreChceDatDoKosika = $kniha->getByIds($_POST['doKosika']);	
@@ -59,8 +59,7 @@ if (isset($_POST['vlozKnihy'])) {
 
 //odstranenie kosika
 if (isset($_POST['zmazat'])) {
-  // var_dump($_POST);
-
+  
   foreach ($_POST['zKosika'] as $idKnihy) {
   	Cart::removeFromCart($idKnihy);
   }
@@ -83,8 +82,6 @@ $adresa = (!isset($_POST['adresa']) && isset($_SESSION['user'])) ?  $uzivatel->g
 
 
 $kosik = Cart::getItems(); 	
-
-
 
 
 
