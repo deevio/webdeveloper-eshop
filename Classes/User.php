@@ -21,6 +21,7 @@ class User {
   
 
     public function register($meno, $email, $adresa, $pass) {
+        //check if exists
 
         $sql = 'INSERT INTO ' .  self::TABLE_NAME . '  ( name, email, pass, address, date ) 
 

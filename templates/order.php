@@ -2,17 +2,22 @@
 <h4>Number: <?= $idOrder; ?> </h4>
 
 <br>
+<h4 >Items</h4>
 <h5 class="text-danger"><?= $stav; ?></h5>
+
 
 <?php
 
         //preVar($order);   
 
         foreach($order as $item) {
-            echo preVar($item);  
-            echo '<div class="jumbotron hero-spacer text-left" >';
-            //echo 'Title: ' . $item['item']->title;
-            //echo '<br>';
+            //echo preVar($item);  
+            $orderDetail = $item['item'];
+            echo '<div class="jumbotron hero-spacer text-left" >';            
+            echo 'Title: ' . $orderDetail->getTitle();            
+            echo '<br>';
+            echo 'Price: ' . $orderDetail->getPrice() . ' EUR ';
+            echo '<br>';
             echo  'Quantity: ' . $item['mnozstvo'];
             echo '</div>';
         }

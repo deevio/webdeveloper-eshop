@@ -1,5 +1,7 @@
 <?php
+use Classes\Cart;
 use Classes\Objednavky;
+
 
 $idUser = (isset($_SESSION['user'])) ? $_SESSION['user'] : header('Location: /') ;
 $idOrder =  (isset($idOrder)) ? $idOrder : '' ;
