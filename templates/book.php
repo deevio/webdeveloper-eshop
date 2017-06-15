@@ -1,15 +1,5 @@
 <?php
-echo $slug;
-echo '<br>';
-//echo $idBook;
 
-
-/*
-foreach($lastBooks as  $key =>  $book){
-    echo $key .' - '. $book; 
-    echo '<br>';
-}
-*/
 
 preVar($book);
 
@@ -19,7 +9,7 @@ preVar($book);
             echo $book->getDescription();
             echo '<br>';
             echo '<br>';
-            echo 'Price: ' . priceformat($book->getPrice());
+            echo 'Price: <strong>' . priceformat($book->getPrice()) . '</strong>';
             echo '<br>'; 
             echo '<br>'; 
             echo '<br>'; 

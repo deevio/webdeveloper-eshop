@@ -17,6 +17,7 @@
             <ul class="nav navbar-nav">
               <li <?php echo ($url == '/') ? 'class="active"' : ''; ?> ><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
               <li <?php echo ($url == '/books') ? 'class="active"' : ''; ?> ><a href="/books"><span class="glyphicon glyphicon-book"></span>  Books</a></li>
+              <li <?php echo ($url == '/authors') ? 'class="active"' : ''; ?> ><a href="/authors"><span class="glyphicon glyphicon-pencil"></span>  Authors</a></li>
               <li <?php echo ($url == '/contact') ? 'class="active"' : ''; ?> ><a href="/contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
             </ul>
 
