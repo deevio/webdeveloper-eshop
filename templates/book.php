@@ -1,17 +1,16 @@
-<h3><?=  $book->getTitle() ; ?> </h3>
-
 <?php
-
 //preVar($book);
 
             echo '<div class="jumbotron hero-spacer text-left" >';            
-            //echo 'Title: <strong>' . $book->getTitle() .'</strong>';            
+            echo '<h3>' . $book->getTitle() .'</h3>';            
             echo '<br>';
-            echo $book->getDescription();
-            echo '<br>';
-            echo '<br>';
-            echo 'Price: <strong>' . priceformat($book->getPrice()) . '</strong>';
+            echo 'Author: ';
             echo '<br>'; 
+            echo $book->getDescription();
+            echo '<br>';            
+            echo '<br>';
+            echo 'Price: <strong>' . priceformat($book->getPrice()) . '</strong>';            
+            echo '<br>';            
             echo '<br>'; 
             echo '<br>'; 
             echo backButton();
