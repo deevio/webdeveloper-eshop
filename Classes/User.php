@@ -165,8 +165,18 @@ class User {
     }
 
  
+/*
+//dokoncit v template nav-top.php
+    public function isLoggedIn(){
 
+        if( isset($_SESSION['user']) && is_numeric($_SESSION['user']) ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
+*/
 
     public function logout() {
          unset($_SESSION[self::__USER__] );
