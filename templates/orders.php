@@ -10,6 +10,10 @@
   <tr><th>Date</th><th>Number</th><th>Status</th><th>Address</th><th>Detail</th></tr> 
  
         <?php 
+
+        // order status : confirmed rejected shipped canceled 
+        $status = ['created','confirmed','waiting','shipped','rejected', '<b>canceled</b>'];
+
         foreach($orders as $order){
             echo ' <tr>';
 
@@ -24,7 +28,7 @@
                 echo ' </td>';
 
                 echo ' <td>';
-                    echo  $order->status;
+                    echo  $status[$order->status] ;
                 echo ' </td>';  
 
                 echo ' <td>';

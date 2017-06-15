@@ -1,6 +1,9 @@
 <?php
 use Classes\User;
 
+
+$idUser = (isset($_SESSION['user'])) ? header('Location: /') : '' ;
+
 $stav = NULL;
 
 

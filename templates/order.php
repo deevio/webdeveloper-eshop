@@ -7,16 +7,15 @@
 
 
 <?php
-
         //preVar($order);   
 
         foreach($order as $item) {
             //echo preVar($item);  
             $orderDetail = $item['item'];
             echo '<div class="jumbotron hero-spacer text-left" >';            
-            echo 'Title: ' . $orderDetail->getTitle();            
+            echo 'Title: <strong>' . $orderDetail->getTitle() .'</strong>';            
             echo '<br>';
-            echo 'Price: ' . $orderDetail->getPrice() . ' EUR ';
+            echo 'Price: ' . priceformat($orderDetail->getPrice()) . ' EUR ';
             echo '<br>';
             echo  'Quantity: ' . $item['mnozstvo'];
             echo '</div>';
