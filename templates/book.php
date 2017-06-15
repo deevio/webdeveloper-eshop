@@ -1,10 +1,11 @@
+<h3><?=  $book->getTitle() ; ?> </h3>
+
 <?php
 
-
-preVar($book);
+//preVar($book);
 
             echo '<div class="jumbotron hero-spacer text-left" >';            
-            echo 'Title: <strong>' . $book->getTitle() .'</strong>';            
+            //echo 'Title: <strong>' . $book->getTitle() .'</strong>';            
             echo '<br>';
             echo $book->getDescription();
             echo '<br>';
