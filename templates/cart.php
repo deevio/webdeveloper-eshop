@@ -44,6 +44,8 @@
 <h4><?= priceformat($suma) ; ?>  -  amount:  <?= $q; ?></h4>
 
 <br>
+
+<?php echo backButton(); ?>
 <input type="submit" value="Send order" name="objednat" class="btn btn-success pull-right"/>
 &nbsp;&nbsp;&nbsp;
 <input type="submit" value="Delete" name="zmazat" class="btn btn-danger pull-right"/>

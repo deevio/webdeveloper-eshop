@@ -120,6 +120,33 @@ function preVar($post) {
          $backButton = '<a href="' . $_SERVER['HTTP_REFERER'] . '" title="back" class="btn btn-info pull-left"/> Back </a>';   
          return $backButton;
     }; 
+
+
+
+/**
+ * excerpt from longer text
+ *
+ * @param string $text - longer text
+ * @param int $howMany - how many words
+ * @return string $excerpt - excerpt
+ */
+
+
+    function excerpt($text, $howMany){
+
+        $num_words = $howMany;
+        $words = array();
+        $words = explode(" ", $text, $num_words);
+        $shown_string = "";
+
+        if(count($words) == $num_words){
+        $words[$num_words-1] = "... ";
+        }
+
+        $excerpt = implode(" ", $words);        
+       
+        return $excerpt ;
+    }; 
     
 
 ?>

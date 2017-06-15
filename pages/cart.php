@@ -107,7 +107,7 @@ if (isset($_POST['objednat'])) {
 		) {
 
 			Cart::clearCart();
-			header('Location: /kupil');
+			header('Location: /orders');
 			die;
 
 		} else {

@@ -1,6 +1,13 @@
 <?php
+use Classes\Author;
 
-$data = [];
+$autori = new Author();
+$authors = $autori->getAll();
+
+
+$data = [
+	'authors' => $authors,
+];
 
 
 $content = getContent(
