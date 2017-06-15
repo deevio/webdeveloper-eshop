@@ -15,7 +15,9 @@
             echo '<div class="jumbotron hero-spacer text-left" >';            
             echo 'Title: <strong>' . $orderDetail->getTitle() .'</strong>';            
             echo '<br>';
-            echo 'Price: ' . priceformat($orderDetail->getPrice()) . ' EUR ';
+            echo 'Price for item: ' . priceformat($orderDetail->getPrice()) ;
+            echo '<br>';
+            echo 'Total : ' . priceformat($orderDetail->getPrice()  * $item['mnozstvo'] );
             echo '<br>';
             echo  'Quantity: ' . $item['mnozstvo'];
             echo '</div>';
@@ -29,4 +31,4 @@
 </form>
 
 
-<a href="<?= $_SERVER['HTTP_REFERER'] ; ?>" title="back" class="btn btn-info pull-left"/> Back </a>
+<?= backButton() ;?>

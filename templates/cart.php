@@ -41,7 +41,7 @@
   ?>	
 </table>
 <br>
-<h4><?= priceformat($suma) ; ?> EUR   -  amount:  <?= $q; ?></h4>
+<h4><?= priceformat($suma) ; ?>  -  amount:  <?= $q; ?></h4>
 
 <br>
 <input type="submit" value="Send order" name="objednat" class="btn btn-success pull-right"/>

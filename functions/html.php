@@ -103,12 +103,23 @@ function preVar($post) {
         //sprintf(); %i %s - see
         //setlocale(LC_MONETARY, 'sk_SK');
         //return money_format("%i", $price); //doesn't work in windows
-        return number_format($price, 2, ',', ' ');
-
-
-      
+        return number_format($price, 2, ',', ' ') . ' EUR';      
 
     }; 
-  
+
+
+/**
+ * back button
+ *
+ * @return string back button
+ */
+
+
+    function backButton(){
+       
+         $backButton = '<a href="' . $_SERVER['HTTP_REFERER'] . '" title="back" class="btn btn-info pull-left"/> Back </a>';   
+         return $backButton;
+    }; 
+    
 
 ?>

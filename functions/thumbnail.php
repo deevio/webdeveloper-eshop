@@ -21,9 +21,9 @@ function thumbnail($id, $title, $excerpt, $price, $url, $imgUrl) {
                         <div class="caption">
                             <h3>' . $title . '</h3>
                             <p>' . $excerpt . '</p>
-                            <p><strong>' . priceFormat($price) . ' </strong> EUR</p>
+                            <p><strong>' . priceFormat($price) . ' </strong></p>
                             <p>
-                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" name="addItem"/>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
                                 <a href="' . $url . '" class="btn btn-default" title="' . $title . '" >More Info</a>
                                 <input type="checkbox" name="doKosika[]" value="' . $id . '" />
                             </p>
