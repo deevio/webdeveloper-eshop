@@ -21,23 +21,30 @@ class User {
   
 
     public function register($meno, $email, $adresa, $pass) {
+
         //check if exists
+        if(!$this->getUserByEmail($email)) {
 
-        $sql = 'INSERT INTO ' .  self::TABLE_NAME . '  ( name, email, pass, address, date ) 
+            $sql = 'INSERT INTO ' .  self::TABLE_NAME . '  ( name, email, pass, address, date ) 
 
-        VALUES ( :name,  :email, :pass, :address, :date )'  ;
+            VALUES ( :name,  :email, :pass, :address, :date )'  ;
 
-        $query = $this->db->prepare($sql);
+            $query = $this->db->prepare($sql);
 
-        $query->execute(array(
-            ':name' => $meno,
-            ':email' => $email,
-            ':pass' => $this->hash($pass),           
-            ':address' => $adresa,
-            ':date' => time(),
-        ));
+            $query->execute(array(
+                ':name' => $meno,
+                ':email' => $email,
+                ':pass' => $this->hash($pass),           
+                ':address' => $adresa,
+                ':date' => time(),
+            ));
 
-        return true;
+            return true;
+
+        } else {
+
+            return false;
+        }
     }
 
 
@@ -54,11 +61,13 @@ class User {
             ':email' => $email,
         ));
         $result = $query->fetchAll();
-   
-        $id =  $result[0]['id'];
-		$hash = $result[0]['pass'];
-        $verify =  password_verify($pass, $hash);
-
+        
+        if($result){
+            $id =  $result[0]['id'];
+            $hash = $result[0]['pass'];
+            $verify =  password_verify($pass, $hash);
+        }
+//opravit 
         if($verify) {
             $_SESSION[self::__USER__] = $id;
         }
@@ -91,6 +100,29 @@ class User {
 
     }
 
+    public function getUserByEmail($email) {
+
+        $sql = ' SELECT id FROM ' .  self::TABLE_NAME . '  WHERE 
+
+        email =  :email  LIMIT 1 ';
+
+        $query = $this->db->prepare($sql);
+
+
+        $query->execute(array( 
+
+            ':email' => $email,
+            
+        ));
+
+        $emailExists = $query->fetchAll();
+
+
+        return  $emailExists ;      
+
+    }
+
+    
     public function change($id, $meno, $email, $adresa) {
 
         $sql = ' UPDATE ' .  self::TABLE_NAME . '  SET  name = :name, email = :email, address = :address   

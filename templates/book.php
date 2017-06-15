@@ -14,6 +14,9 @@
             echo '<br>'; 
             echo '<br>'; 
             echo backButton();
+            // echo '<form method="get"  action="' .  $_SERVER['REQUEST_URI'] . '">';
+            echo '<form method="post"  action="/cart">';
+            //echo ' Quantity : <input  type="number" name="mnozstvo" value="1" min="1" class="form-control">';
             echo '<input type="submit" value="Buy" name="kupit" class="btn btn-success pull-right"/>';    
             echo '<br>';      
             echo '</div>';          

@@ -32,7 +32,8 @@ class Cart {
     */
 	public static function addToCart(Product $kniha, $mnozstvo = 1) {
 		if (!is_numeric($mnozstvo)) {
-			throw new \Exception('Mnozstvo musi byt cislo');
+			//throw new \Exception('Mnozstvo musi byt cislo');
+			$mnozstvo = 1;
 		}
 
         // ked este nema knihu s takym id v kosiku, tak prida

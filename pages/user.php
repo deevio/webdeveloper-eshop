@@ -130,6 +130,8 @@ if (isset($_POST['zmenit_heslo'])) {
 }
 
 
+
+
 $data = [
 
     'meno'=> (isset($meno)) ? $meno : '' ,

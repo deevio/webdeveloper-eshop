@@ -38,13 +38,17 @@ if (isset($_POST['vlozKnihy']) || isset($_POST['kupit'])) {
 
   	 $kniha = new Kniha;
   	 $knihyKtoreChceDatDoKosika = $kniha->getByIds($_POST['doKosika']);	
+	 $mnozstvo = 1;  
+
+	//preVar($_POST);
 
   foreach ($knihyKtoreChceDatDoKosika as $vlozenaKniha) {
+		$mnozstvo = (isset($_POST['mnozstvo']) && !empty($_POST['mnozstvo']) ) ? $_POST['mnozstvo'] : $mnozstvo ;
 
 		//add try catch
 		try {
 
-			Cart::addToCart($vlozenaKniha);
+			Cart::addToCart($vlozenaKniha, $mnozstvo);
 
 		} catch (\Exception $exception) {
 

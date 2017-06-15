@@ -1,5 +1,9 @@
 <?php
 
+use Classes\Cart;
+
+
+
 if(!in_array( $idBook, $_COOKIE['lastViewedBooks'] ) || !isset($_COOKIE['lastViewedBooks'])){
 
 	$platiDo = time() + 7 * 24 * 3600;

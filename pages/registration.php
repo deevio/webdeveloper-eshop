@@ -70,12 +70,12 @@ if (isset($_POST['registrovat'])) {
 			$pass )
 		) {
 			
-			header('Location: /registroval');
+			header('Location: /login');
 			die;
 
 		} else {
 
-			$stav = 'Registration failed!';
+			$stav = 'User exists!';
             
 		}
 
