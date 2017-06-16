@@ -1,6 +1,6 @@
 <!-- Jumbotron  -->
 <div class="jumbotron hero-spacer">
-    <h1>Contact</h1>
+    <h2>Contact</h2>
     <p>
         <br>
         Bookstore s.r.o.<br>

@@ -6,8 +6,6 @@ $idUser = (isLoggedIn()) ? header('Location: /')  : '';
 //objednava sa
 if (isset($_POST['registrovat'])) {
 
-
-
     $valid = true;
     $stav = NULL;
 
@@ -24,7 +22,6 @@ if (isset($_POST['registrovat'])) {
         $stav = 'Fill your email, please.';
 
     } 
-
 
 
     if ($_POST['pass2'] == "") {

@@ -33,7 +33,24 @@ class Author {
 
     }
 
+	public function getByIds(array $ids) {
+		$this->db;		
+		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  ' 
+		WHERE id IN ( ' . implode(',', $ids) . ' )' 	);
 
+		$sth->execute();
+
+        $authors = [];
+		while($author = $sth->fetchObject(__CLASS__)) {
+
+		  $authors[] =  $author;	
+		
+	    }
+
+		return $authors;
+    
+		
+  }
 
 
 }

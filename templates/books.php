@@ -13,7 +13,7 @@
   <!-- /.row -->
 <br>
 <form method="get"  action="/books">
-    <strong>Filter</strong>
+    <strong>Searching Filter</strong>
     <br>
     <div class="row">
         <div class="col-sm-1 col-md-3 col-lg-3">  
@@ -52,7 +52,7 @@
             </select>
         </div>  
         <div class="col-sm-1 col-md-2 col-lg-2 align-righ"> 
-            <input type="submit" value="Search" class="btn btn-success pull-right clearfix ">
+            <input type="submit" value="Search" class="btn btn-success pull-right clearfix " style="width: 100%;">
         </div>
 
     </div>

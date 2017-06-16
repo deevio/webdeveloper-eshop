@@ -1,6 +1,14 @@
 <?php
+use Classes\Author;
+
+
+$autor = new Author();
+$author = $autor->getByIds([$idAuthor]);
+
 
 $data = [
+
+	'author' => $author,
 	
 ];
 
