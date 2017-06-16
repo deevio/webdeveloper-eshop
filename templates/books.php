@@ -5,45 +5,61 @@
           <br>
       </div>
       <div class="col-lg-12">
-      Sort by: 
+      <strong>Sort by</strong> 
         <a href="<?= zoradQueryString('nazov'); ?>">Name</a> 
         <a href="<?= zoradQueryString('cena'); ?>">Price</a> 
       </div>
   </div>
   <!-- /.row -->
-<hr class="clearfix">
-<div class="jumbotron">
-    <form method="get"  action="/books">
-        <label>Filter</label>
-        <input type="text" name="hladaj" value="<?= (isset($_GET['hladaj'])) ? $_GET['hladaj'] : ''; ?>" placeholder="search phrase" class="form-control"/>
-        <input type="text" name="cena_od" value="<?= (isset($_GET['cena_od'])) ? $_GET['cena_od'] : ''; ?>" placeholder="price from" class="form-control"/>      
-        <input type="text" name="cena_do" value="<?= (isset($_GET['cena_do'])) ? $_GET['cena_do'] : ''; ?>" placeholder="price to" class="form-control"/>
-        <select class="form-control" name="autor">
-            <option value="">author</option>
-            <?php 
+<br>
+<form method="get"  action="/books">
+    <strong>Filter</strong>
+    <br>
+    <div class="row">
+        <div class="col-sm-1 col-md-3 col-lg-3">  
+            <input type="text" name="hladaj" value="<?= (isset($_GET['hladaj'])) ? $_GET['hladaj'] : ''; ?>" placeholder="search phrase" class="form-control"/>
+        </div>     
 
-            $selected = '';           
+        <div class="col-sm-1 col-md-2 col-lg-2">  
+            <input type="text" name="cena_od" value="<?= (isset($_GET['cena_od'])) ? $_GET['cena_od'] : ''; ?>" placeholder="price from" class="form-control"/>      
+        </div>
 
-            foreach($authors as $author){
+        <div class="col-sm-1 col-md-2 col-lg-2"> 
+            <input type="text" name="cena_do" value="<?= (isset($_GET['cena_do'])) ? $_GET['cena_do'] : ''; ?>" placeholder="price to" class="form-control"/>
+        </div>
 
-                $selected = (isset($_GET['autor'])  && $_GET['autor'] === $author->id ) ? ' selected="selected" ' : $selected;
-                echo '<option value="' . $author->id . '"
-                 
-                 ' . $selected . '
+        <div class="col-sm-1 col-md-3 col-lg-3">   
+            <select class="form-control" name="autor">
+                <option value="">author</option>
+                <?php 
 
-                
-                >' . $author->name . '</option>';
+                $selected = '';           
 
-                unset($selected);
+                foreach($authors as $author){
 
-            }
-            ?>
-        </select>   
-         <br>    
-        <input type="submit" value="Search" class="btn btn-success pull-right"><br/>
-    </form>
-</div>
+                    $selected = (isset($_GET['autor'])  && $_GET['autor'] === $author->id ) ? ' selected="selected" ' : $selected;
+                    echo '<option value="' . $author->id . '"
+                    
+                    ' . $selected . '
 
+                    
+                    >' . $author->name . '</option>';
+
+                    unset($selected);
+
+                }
+                ?>
+            </select>
+        </div>  
+        <div class="col-sm-1 col-md-2 col-lg-2 align-righ"> 
+            <input type="submit" value="Search" class="btn btn-success pull-right clearfix ">
+        </div>
+
+    </div>
+    <br>  
+</form>
+
+<hr class="clearfix"/>
 
 
 
