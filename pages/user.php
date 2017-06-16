@@ -65,9 +65,9 @@ $pass = (isset($_POST['pass1'])) ? $_POST['pass1'] : '';
 
 
 $uzivatel = new User();
-$meno = (!isset($_POST['meno']) && isset($_SESSION['user'])) ?  $uzivatel->getUserInfo($_SESSION['user'], 'name') : $meno; 
-$email = (!isset($_POST['email']) && isset($_SESSION['user'])) ?  $uzivatel->getUserInfo($_SESSION['user'], 'email') : $email; 
-$adresa = (!isset($_POST['adresa']) && isset($_SESSION['user'])) ?  $uzivatel->getUserInfo($_SESSION['user'], 'address') : $adresa; 
+$meno = (!isset($_POST['meno']) && isLoggedIn()) ?  $uzivatel->getUserInfo(loggedUserId() , 'name') : $meno; 
+$email = (!isset($_POST['email']) && isLoggedIn()) ?  $uzivatel->getUserInfo(loggedUserId() , 'email') : $email; 
+$adresa = (!isset($_POST['adresa']) && isLoggedIn()) ?  $uzivatel->getUserInfo(loggedUserId() , 'address') : $adresa; 
 
 
 if (isset($_POST['zmenit'])) {

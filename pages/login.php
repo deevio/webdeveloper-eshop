@@ -2,7 +2,7 @@
 use Classes\User;
 
 
-$idUser = (isset($_SESSION['user'])) ? header('Location: /') : '' ;
+$idUser = (isLoggedIn()) ? header('Location: /') : '' ;
 
 $stav = NULL;
 

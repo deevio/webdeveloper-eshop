@@ -20,7 +20,7 @@ class Objednavky {
         $query = $this->db->prepare($sql);
 
         $query->execute(array(
-            ':user_id' => (isset($_SESSION['user'])) ? $_SESSION['user'] : NULL ,
+            ':user_id' => (isLoggedIn()) ? loggedUserId() : NULL ,
             ':customer' => $meno,
             ':email' => $email,
             ':items' => serialize($kosik),
