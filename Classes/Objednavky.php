@@ -38,7 +38,7 @@ class Objednavky {
 
         WHERE user_id = :user_id   
         
-        ORDER BY id DESC LIMIT  100  ';
+        ORDER BY id DESC LIMIT  1000  ';
 
         $query = $this->db->prepare($sql);
 

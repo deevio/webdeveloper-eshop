@@ -6,7 +6,7 @@ $idUser = (isLoggedIn()) ? loggedUserId()  : header('Location: /') ;
 
 
 $objednavky = new Objednavky();
-$orders = $objednavky->getAll($idUser );
+$orders = $objednavky->getAll($idUser);
 
 
 $data = [

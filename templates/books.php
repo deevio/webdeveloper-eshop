@@ -13,17 +13,35 @@
   <!-- /.row -->
 <hr class="clearfix">
 <div class="jumbotron">
+    <form method="get"  action="/books">
+        <label>Filter</label>
+        <input type="text" name="hladaj" value="<?= (isset($_GET['hladaj'])) ? $_GET['hladaj'] : ''; ?>" placeholder="search phrase" class="form-control"/>
+        <input type="text" name="cena_od" value="<?= (isset($_GET['cena_od'])) ? $_GET['cena_od'] : ''; ?>" placeholder="price from" class="form-control"/>      
+        <input type="text" name="cena_do" value="<?= (isset($_GET['cena_do'])) ? $_GET['cena_do'] : ''; ?>" placeholder="price to" class="form-control"/>
+        <select class="form-control" name="autor">
+            <option value="">author</option>
+            <?php 
 
-<form method="get"  action="/books">
-      <label>Filter</label>
-      <input type="text" name="cena_od" value="<?= (isset($_GET['cena_od'])) ? $_GET['cena_od'] : ''; ?>" placeholder="price from" class="form-control"/>      
-      <input type="text" name="cena_do" value="<?= (isset($_GET['cena_do'])) ? $_GET['cena_do'] : ''; ?>" placeholder="price to" class="form-control"/>
-      <input type="text" name="hladaj" value="<?= (isset($_GET['hladaj'])) ? $_GET['hladaj'] : ''; ?>" placeholder="search phrase" class="form-control"/><br/>
-      
-      <input type="submit" value="Search" class="btn btn-success"><br/><br/>
-</form>
+            $selected = '';           
 
+            foreach($authors as $author){
 
+                $selected = (isset($_GET['autor'])  && $_GET['autor'] === $author->id ) ? ' selected="selected" ' : $selected;
+                echo '<option value="' . $author->id . '"
+                 
+                 ' . $selected . '
+
+                
+                >' . $author->name . '</option>';
+
+                unset($selected);
+
+            }
+            ?>
+        </select>   
+         <br>    
+        <input type="submit" value="Search" class="btn btn-success pull-right"><br/>
+    </form>
 </div>
 
 

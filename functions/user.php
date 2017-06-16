@@ -2,7 +2,7 @@
 
 /**
 *is logged in
-* @return bool true - logged in
+* @return boolean true - logged in
 */
 
      function isLoggedIn() {

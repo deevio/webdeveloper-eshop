@@ -48,7 +48,7 @@ class Kniha extends Product {
 
 	public function getBooks(
 		$from = 0, $limit = 12, $orderBy = 'id',
-		$cena_od = 0,	$cena_do = NULL, $hladaj = NULL
+		$cena_od = 0,	$cena_do = NULL, $hladaj = NULL, $autor = NULL
 		) {
 
 
@@ -65,6 +65,10 @@ class Kniha extends Product {
 				$whereHodnoty['hladaj'] = $hladaj;
 			}
 
+			if($autor != NULL) {
+				$whereSql .= '  AND  author = :autor ';
+				$whereHodnoty['autor'] = $autor;
+			}
 
 		$this->db;		
 		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  ' 

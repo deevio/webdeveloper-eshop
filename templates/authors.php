@@ -17,7 +17,7 @@
                 echo ' </td>';
 
                  echo ' <td>';
-                    echo '<a href="" title="books" >Books</a>';
+                    echo '<a href="/books?autor=' . $author->id . '" title="books of author" >Books</a>';
                 echo ' </td>';               
 
             echo ' </tr>';

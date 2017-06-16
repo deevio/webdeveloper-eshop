@@ -1,6 +1,6 @@
 <?php 
 use Classes\Kniha;
-
+use Classes\Author;
 
 
 
@@ -37,16 +37,20 @@ $start = (!isset($idPage)) ? 0 : ($idPage * $limit - $limit);
 $cena_od = (isset($_GET['cena_od' ]) && !empty($_GET['cena_od' ])) ? $_GET['cena_od' ] : 0;
 $cena_do = (isset($_GET['cena_do' ]) && !empty($_GET['cena_do' ])) ? $_GET['cena_do' ] : NULL;
 $hladaj = (isset($_GET['hladaj' ]) && !empty($_GET['hladaj' ])) ? $_GET['hladaj' ] : NULL;
+$autor = (isset($_GET['autor' ]) && !empty($_GET['autor' ])) ? $_GET['autor' ] : NULL;
 
 $listOfBooks = new Kniha;
 
+$autori = new Author();
+$authors = $autori->getAll();
+
+
 $data = [
-	'books' => $listOfBooks->getBooks($start, $limit, $orderBy, $cena_od, $cena_do, $hladaj) ,
+	'books' => $listOfBooks->getBooks($start, $limit, $orderBy, $cena_od, $cena_do, $hladaj, $autor) ,
 	'idPage'=>  (isset($idPage)) ? $idPage : 1,
 	'pocetKnih'=> $listOfBooks->count,
-	'limit' => $limit,
-	
-	
+	'authors' => $authors,
+	'limit' => $limit,	
 ];
 
 
