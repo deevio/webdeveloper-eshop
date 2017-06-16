@@ -88,12 +88,19 @@ Router::route('GET', '/user', function($url){
 
 
 
+Router::route('POST', '/invoice/(\d+).*', function($url, $idOrder){
+  include '../pages/invoice.php';
+});
+
+
+
 Router::route('GET', '/authors', function($url){
   include '../pages/authors.php';
 });
 Router::route('GET', '/author/(\d+).*', function($url, $idAuthor){
   include '../pages/author.php';
 });
+
 
 
 

@@ -9,7 +9,6 @@ use Classes\Cart;
 Cart::init();
 
 
-
 require_once '../config/routes.php';
 
 

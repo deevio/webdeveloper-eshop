@@ -14,7 +14,8 @@
             "functions/html.php",
             "functions/thumbnail.php",
             "functions/books.php",
-            "functions/pagination.php"
+            "functions/pagination.php",
+            "functions/user.php"
         ],
         "psr-4": {
             "Classes\\": "Classes/"

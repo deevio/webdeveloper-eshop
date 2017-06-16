@@ -27,7 +27,15 @@
 ?>
 
 <form action="/order/<?= $idOrder ; ?>" method="post">
-<input type="submit" value="Cancel Order" name="storno" class="btn btn-danger pull-right"/>
+    <input type="submit" value="Cancel Order" name="storno" class="btn btn-danger pull-right"/>
+</form>
+
+
+<form action="/invoice/<?= $idOrder ; ?>" method="post">
+    <input type="submit" value="Generate PDF" name="pdf" class="btn btn-success pull-right"/>
+</form>
+
+
 </form>
 
 

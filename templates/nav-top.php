@@ -24,7 +24,7 @@
             <ul class="nav navbar-nav navbar-right">             
                    
 
-              <?php if(!isset($_SESSION['user'])) { ?>
+              <?php if(!isLoggedIn()) { ?>
               <li <?php echo ($url == '/registration') ? 'class="active"' : ''; ?>><a href="/registration">Registration</a></li>
               <li <?php echo ($url == '/login') ? 'class="active"' : ''; ?>><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
               <?php } else { ?>

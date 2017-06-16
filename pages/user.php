@@ -2,7 +2,7 @@
 use Classes\User;
 
 $valid = true;
-$id = (isset($_SESSION['user'])) ? $_SESSION['user'] : header('Location: /') ;
+$idUser = (isLoggedIn()) ? loggedUserId()  : header('Location: /') ;
 
 
 if (isset($_POST['zmenit'])) {
@@ -78,7 +78,7 @@ if (isset($_POST['zmenit'])) {
 
 		if(
 		$uzivatel->change(
-			$id,
+			$idUser,
 			htmlentities($meno),
 			htmlentities($email),
 			htmlentities($adresa)			
@@ -108,7 +108,7 @@ if (isset($_POST['zmenit_heslo'])) {
 
 		if(
 		$uzivatel->changePass(
-			$id,
+			$idUser,
 			$pass
 			)
 		) {

@@ -3,7 +3,7 @@ use Classes\Cart;
 use Classes\Objednavky;
 
 
-$idUser = (isset($_SESSION['user'])) ? $_SESSION['user'] : header('Location: /') ;
+$idUser = (isLoggedIn()) ? loggedUserId()  : header('Location: /') ;
 $idOrder =  (isset($idOrder)) ? $idOrder : '' ;
 
 $objednavky = new Objednavky();

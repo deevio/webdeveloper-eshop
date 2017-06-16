@@ -1,7 +1,7 @@
 <?php
 use Classes\User;
 
-$idUser = (isset($_SESSION['user'])) ? header('Location: /')  : '';
+$idUser = (isLoggedIn()) ? header('Location: /')  : '';
 
 //objednava sa
 if (isset($_POST['registrovat'])) {

@@ -1,7 +1,8 @@
 <?php 
 use Classes\Objednavky;
 
-$idUser = (isset($_SESSION['user'])) ? $_SESSION['user'] : header('Location: /') ;
+
+$idUser = (isLoggedIn()) ? loggedUserId()  : header('Location: /') ;
 
 
 $objednavky = new Objednavky();

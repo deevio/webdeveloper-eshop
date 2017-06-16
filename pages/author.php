@@ -1,6 +1,8 @@
 <?php
 
-$data = [];
+$data = [
+	
+];
 
 
 $content = getContent(
