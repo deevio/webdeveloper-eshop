@@ -45,6 +45,13 @@ if (isset($_POST['registrovat'])) {
 
     } 
 
+    if (strlen($_POST['pass1']) < 8) {
+
+        $valid = false;
+        $stav = 'Password must be at least 8 characters. ';
+
+    } 
+
 	
 	//validation
 

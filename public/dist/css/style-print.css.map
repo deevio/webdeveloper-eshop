@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,CAAC;EACG,KAAK,EAAE,KAAK;;AAGhB,UAAS;EACL,gBAAgB,EAAE,GAAG;;AAEzB,EAAE;EACE,WAAW,EAAE,MAAM;EACnB,KAAK,EAAE,GAAG;;AAEd,KAAK;EACD,QAAQ,EAAE,QAAQ;EAClB,KAAK,EAAE,GAAG;EACV,GAAG,EAAE,GAAG",
+"sources": ["../sass/style-print.sass"],
+"names": [],
+"file": "style-print.css"
+}

@@ -1,0 +1,16 @@
+* {
+  color: green; }
+
+html, body {
+  background-color: red; }
+
+h2 {
+  font-weight: normal;
+  color: red; }
+
+.logo {
+  position: absolute;
+  right: 0px;
+  top: 0px; }
+
+/*# sourceMappingURL=style-print.css.map */
