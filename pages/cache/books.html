@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eshop</title>    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/dist/css/style.css?v=1497985144">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                
+   <!-- Static navbar -->
+   <header>
+      <nav class="navbar navbar-default">        
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img src="/dist/images/bookstore.png" alt="bookstore"  width="60" class="align-middle" /></a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+
+            <ul class="nav navbar-nav">
+              <li  ><a href="/"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+              <li class="active" ><a href="/books"><span class="glyphicon glyphicon-book"></span>  Books</a></li>
+              <li  ><a href="/authors"><span class="glyphicon glyphicon-pencil"></span>  Authors</a></li>
+              <li  ><a href="/contact"><span class="glyphicon glyphicon-phone-alt"></span> Contact</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">             
+                   
+
+                            <li ><a href="/admin/books">Admin</a></li> 
+              <li ><a href="/user"><span class="glyphicon glyphicon-user"></span> User info</a></li>
+              <li ><a href="/orders"><span class="glyphicon glyphicon-list"></span> Orders</a></li> 
+              <li ><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+               
+
+
+              <li ><a href="/cart">  <span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li> 
+              
+              
+
+            </ul>
+     
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    </header>
+    
+<div id="content"><!-- Title -->
+  <div class="row">
+      <div class="col-lg-12">
+          <h3>Latest Books</h3>
+          <br>
+      </div>
+      <div class="col-lg-12">
+      <strong>Sort by</strong> 
+        <a href="?sort=dole&ord=nazov">Name</a> 
+        <a href="?sort=dole&ord=cena">Price</a> 
+      </div>
+  </div>
+  <!-- /.row -->
+<br>
+<form method="get"  action="/books">
+    <strong>Searching Filter</strong>
+    <br>
+    <div class="row">
+        <div class="col-sm-1 col-md-3 col-lg-3">  
+            <input type="text" name="hladaj" value="" placeholder="search phrase" class="form-control"/>
+        </div>     
+
+        <div class="col-sm-1 col-md-2 col-lg-2">  
+            <input type="text" name="cena_od" value="" placeholder="price from" class="form-control"/>      
+        </div>
+
+        <div class="col-sm-1 col-md-2 col-lg-2"> 
+            <input type="text" name="cena_do" value="" placeholder="price to" class="form-control"/>
+        </div>
+
+        <div class="col-sm-1 col-md-3 col-lg-3">   
+            <select class="form-control" name="autor">
+                <option value="">author</option>
+                <option value="2"
+                    
+                    
+
+                    
+                    >Enrique Realitas</option><br />
+<b>Notice</b>:  Undefined variable: selected in <b>C:\xampp\htdocs\webdeveloper\templates\books.php</b> on line <b>40</b><br />
+<option value="1"
+                    
+                    
+
+                    
+                    >Jozko Kolienko</option><br />
+<b>Notice</b>:  Undefined variable: selected in <b>C:\xampp\htdocs\webdeveloper\templates\books.php</b> on line <b>40</b><br />
+<option value="3"
+                    
+                    
+
+                    
+                    >Satrama Dianpes</option>            </select>
+        </div>  
+        <div class="col-sm-1 col-md-2 col-lg-2 align-righ"> 
+            <input type="submit" value="Search" class="btn btn-success pull-right clearfix " style="width: 100%;">
+        </div>
+
+    </div>
+    <br>  
+</form>
+
+<hr class="clearfix"/>
+
+
+
+<form method="post"  action="/cart">
+    
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/3" alt="">
+                        <div class="caption">
+                            <h3>Kniha 39</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>69,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-39/2" class="btn btn-default" title="Kniha 39" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="2" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/17" alt="">
+                        <div class="caption">
+                            <h3>Kniha 2</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>13,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-2/1" class="btn btn-default" title="Kniha 2" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="1" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/19" alt="">
+                        <div class="caption">
+                            <h3>Kniha 82</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>62,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-82/3" class="btn btn-default" title="Kniha 82" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="3" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/4" alt="">
+                        <div class="caption">
+                            <h3>Kniha 98</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>24,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-98/3" class="btn btn-default" title="Kniha 98" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="3" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/15" alt="">
+                        <div class="caption">
+                            <h3>Kniha 100</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>26,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-100/3" class="btn btn-default" title="Kniha 100" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="3" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/1" alt="">
+                        <div class="caption">
+                            <h3>Kniha 15</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>51,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-15/1" class="btn btn-default" title="Kniha 15" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="1" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/9" alt="">
+                        <div class="caption">
+                            <h3>Kniha 29</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>44,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-29/1" class="btn btn-default" title="Kniha 29" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="1" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/20" alt="">
+                        <div class="caption">
+                            <h3>Kniha 66</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>40,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-66/3" class="btn btn-default" title="Kniha 66" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="3" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/4" alt="">
+                        <div class="caption">
+                            <h3>Kniha 52</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>73,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-52/2" class="btn btn-default" title="Kniha 52" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="2" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/9" alt="">
+                        <div class="caption">
+                            <h3>Kniha 77</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>42,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-77/3" class="btn btn-default" title="Kniha 77" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="3" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/12" alt="">
+                        <div class="caption">
+                            <h3>Kniha 64</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>65,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-64/3" class="btn btn-default" title="Kniha 64" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="3" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <img src="https://placeimg.com/345/280/people/16" alt="">
+                        <div class="caption">
+                            <h3>Kniha 4</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p><strong>26,00 EUR </strong></p>
+                            <p>
+                                <br>
+                                <input type="submit" value="Buy Now!" name="kupit" class="btn btn-success" />
+                                <a href="/book/kniha-4/1" class="btn btn-default" title="Kniha 4" >More Info</a>
+                                <input type="checkbox" name="doKosika[]" value="1" />
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <div style="clear:both;"></div>
+<hr class="clearfix">
+<input type="submit" value="Add to Cart" name="vlozKnihy" class="btn btn-info pull-right"/>
+</form>
+
+
+
+<br><br>Number of Products: 100 <br><br>
+<ul class="pagination"><li  class="active"  ><a href="/books/1?">1 </a></li><li  ><a href="/books/2?">2 </a></li><li  ><a href="/books/3?">3 </a></li><li  ><a href="/books/4?">4 </a></li><li  ><a href="/books/5?">5 </a></li><li  ><a href="/books/6?">6 </a></li><li  ><a href="/books/7?">7 </a></li><li  ><a href="/books/8?">8 </a></li><li  ><a href="/books/9?">9 </a></li></ul>
+</div>
+
+
+              </div>
+            </div>
+            <!-- /.row -->
+
+                 <hr>
+                <!-- Footer -->
+                <footer>     
+                           
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p> &copy; BOOKSTORE 2017</p>
+                        </div>
+                    </div>
+                </footer>
+
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.section -->
+
+<script  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/dist/js/main.js?v=1497985144"></script>
+
+</body>
+</html>

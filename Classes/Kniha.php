@@ -3,6 +3,7 @@
 class Kniha extends Product {
 
 	const TABLE_NAME = 'products';
+	const TABLE_NAME_2 = 'authors';
 
 	protected $pocetStran;
 	protected $excerpt;
@@ -70,9 +71,21 @@ class Kniha extends Product {
 				$whereHodnoty['autor'] = $autor;
 			}
 
+			if($hladaj != NULL) {
+				$whereSql .=  ' OR  authors.name LIKE :hladaj_autora  ' ;	
+				$whereHodnoty['hladaj_autora'] = '%'.$hladaj.'%';
+							
+			}
+
+
+
 		$this->db;		
 		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  ' 
 
+		JOIN  ' . self::TABLE_NAME_2 .  ' 
+
+		ON ' . self::TABLE_NAME .  '.author = ' . self::TABLE_NAME_2 .  '.id 
+ 
 		WHERE  '.$whereSql.'
 
 		ORDER BY ' . $orderBy . '
@@ -80,14 +93,6 @@ class Kniha extends Product {
 
 		);
 
-/*
-echo ' SELECT * FROM  ' . self::TABLE_NAME .  ' 
-
-		WHERE  '.$whereSql.'
-
-		ORDER BY ' . $orderBy . '
-		LIMIT ' . $from . ', '. $limit . ' ';
-*/
 
 		$sth->execute( $whereHodnoty );
 		

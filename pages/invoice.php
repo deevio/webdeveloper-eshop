@@ -3,7 +3,8 @@ use Classes\User;
 use Classes\Cart;
 use Classes\Objednavky;
 
-$idUser = loggedUserId();
+
+$idUser = (!isLoggedIn()) ? header('Location: /')  : loggedUserId();
 
 $zakaznik = new User();
 $objednavky = new Objednavky();
@@ -24,7 +25,7 @@ $customer  = '<h3>'. $zakaznik->getUserInfo($idUser, 'name') .'</h3><br>';
 $customer .=  $zakaznik->getUserInfo($idUser , 'address') .'<br><br>';
 $customer .=  $zakaznik->getUserInfo($idUser , 'email') .'<br>';
 
-$payId = date('Ymd', $date) . $idOrder; 
+$payId = date('ymd', $date) . $idOrder; 
 $eshop = '<h3>Bookstore s.r.o.</h3> <br> Lievancova 6<br> 04001 Kosice<br><br>  phone: 055 111111<br>  email: bookstore@bookstore.sk';
 $contact = '';
 $bankAccount = 'SK 123  456 7890 ';
@@ -33,7 +34,6 @@ $footer = '';
 
 
 //html
-
 $html  = $logo . $header;
 $html .= '<br><hr style"color:  #d2d2d2"/><br>';
 $html .= '<br><br>';

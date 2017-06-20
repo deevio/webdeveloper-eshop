@@ -59,6 +59,19 @@ $content = getContent(
 	$data
 );
 
-include '../templates/layout.php';
+
+	//cache
+    ob_start();
+    include '../templates/layout.php';
+    $content = ob_get_contents();
+    ob_end_clean();
+
+	///mkdir(__DIR__.'/cache');
+
+	file_put_contents(__DIR__.'/cache/books.html', $content);
+
+	echo $content;
+
+
 
 ?>
