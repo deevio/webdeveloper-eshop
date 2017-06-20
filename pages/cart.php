@@ -34,31 +34,35 @@ if (isset($_POST['objednat'])) {
 
 
 // vkladanie do kosika
-if (isset($_POST['vlozKnihy']) || isset($_POST['kupit'])) {
+if (isset($_POST['doKosika'])) {
 
-  	 $kniha = new Kniha;
-  	 $knihyKtoreChceDatDoKosika = $kniha->getByIds($_POST['doKosika']);	
-	 $mnozstvo = 1;  
+	if (isset($_POST['vlozKnihy']) || isset($_POST['kupit'])) {
 
-	//preVar($_POST);
+		$kniha = new Kniha;
+		$knihyKtoreChceDatDoKosika = $kniha->getByIds($_POST['doKosika']);	
+		$mnozstvo = 1;  
 
-  foreach ($knihyKtoreChceDatDoKosika as $vlozenaKniha) {
-		$mnozstvo = (isset($_POST['mnozstvo']) && !empty($_POST['mnozstvo']) ) ? $_POST['mnozstvo'] : $mnozstvo ;
+		//preVar($_POST);
 
-		//add try catch
-		try {
+	foreach ($knihyKtoreChceDatDoKosika as $vlozenaKniha) {
+			$mnozstvo = (isset($_POST['mnozstvo']) && !empty($_POST['mnozstvo']) ) ? $_POST['mnozstvo'] : $mnozstvo ;
 
-			Cart::addToCart($vlozenaKniha, $mnozstvo);
+			//add try catch
+			try {
 
-		} catch (\Exception $exception) {
+				Cart::addToCart($vlozenaKniha, $mnozstvo);
 
-			var_dump($exception->getMessage());
-			die;
+			} catch (\Exception $exception) {
 
-		}
+				var_dump($exception->getMessage());
+				die;
 
-  }
-  
+			}
+
+	}
+	
+	}
+
 }
 
 //odstranenie kosika

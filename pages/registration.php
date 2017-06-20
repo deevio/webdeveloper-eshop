@@ -1,6 +1,8 @@
 <?php
 use Classes\User;
 
+
+//redirect when logged in
 $idUser = (isLoggedIn()) ? header('Location: /')  : '';
 
 //objednava sa

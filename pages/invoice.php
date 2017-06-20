@@ -1,431 +1,96 @@
 <?php
+use Classes\User;
+use Classes\Cart;
+use Classes\Objednavky;
+
+$idUser = loggedUserId();
+
+$zakaznik = new User();
+$objednavky = new Objednavky();
+
+$order = $objednavky->getOrder($idOrder, $idUser );
+$orders = unserialize($order);
+$date = time();
 
 //config
-$stylesheet = '../dist/css/style-print.css';
-$qrPath = '../dist/css/images/qr/';
+//$stylesheet = '../dist/css/style-print.css';
+
+//store
 $logo = '<img src="../dist/images/bookstore.png" alt="logo" width="120"  />';
-$header = '';
-$customer = '';
-$eshop = '';
+$header = '&nbsp;&nbsp; <span style="color: grey;"> Bookstore s.r.o., Lievancova 6, 04001 Kosice</span>';
+
+//customer
+$customer  = '<h3>'. $zakaznik->getUserInfo($idUser, 'name') .'</h3><br>';
+$customer .=  $zakaznik->getUserInfo($idUser , 'address') .'<br><br>';
+$customer .=  $zakaznik->getUserInfo($idUser , 'email') .'<br>';
+
+$payId = date('Ymd', $date) . $idOrder; 
+$eshop = '<h3>Bookstore s.r.o.</h3> <br> Lievancova 6<br> 04001 Kosice<br><br>  phone: 055 111111<br>  email: bookstore@bookstore.sk';
 $contact = '';
-$bankAccount = '';
-$items = '';
+$bankAccount = 'SK 123  456 7890 ';
 $footer = '';
 
 
-//qr code
-$qrCodeFileName = $qrPath.'qr-'. $idOrder .'.png' ;
-$qrCode = '';
-
 
 //html
-$html  = '<h2>Invoice : <strong>' . $idOrder . '</strong> </h2>';
-$html .= '<br>';
-$html .= '<div class="logo" >'. $logo . '</div>' ;
-$html .= '<br>';
-$html .= $qrCodeFileName;
-$html .= '';
-$html .= '';
-$html .= '';
 
-$html = '';
-$html = '
-<html><head>
-<style>
-table {
-	font-family: sans-serif;
-	border: 7mm solid aqua;
-	border-collapse: collapse;
-}
-table.table2 {
-	border: 2mm solid aqua;
-	border-collapse: collapse;
-}
-table.layout {
-	border: 0mm solid black;
-	border-collapse: collapse;
-}
-td.layout {
-	text-align: center;
-	border: 0mm solid black;
-}
-td {
-	padding: 3mm;
-	border: 2mm solid blue;
-	vertical-align: middle;
-}
-td.redcell {
-	border: 3mm solid red;
-}
-td.redcell2 {
-	border: 2mm solid red;
-}
-</style>
-</head>
-<body>
-<h1>mPDF</h1>
-<h2>Tables - Borders</h2>
-<h4>mPDF</h4>
-Border conflict resolution in tables with border-collapse set to "collapse". mPDF follows the rules set by CSS as well as possible, but as you can see, there is some difference in interpretation of the rules:
-<table class="layout">
-<tr>
-    <td class="layout">mPDF</td>
-    <td class="layout">Internet Explorer<br />IE 9</td>
-    <td class="layout">Firefox<br />v 32.0.3</td>
-</tr>
-<tr>
-	<td class="layout">
-<table>
-<tr>
-    <td style="border:5mm solid green">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td rowspan="2" class="redcell" style="border:5mm solid teal">1</td>
-    <td style="border:3mm solid pink">1</td>
-    <td style="border:5mm solid purple">1</td>
-</tr>
-<tr>
-    <td style="border:2mm solid gray">1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td class="redcell">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-</table>
-	</td>
-    <td class="layout" rowspan="3"><img src="assets/bordersIE.jpg" /></td>
-    <td class="layout" rowspan="3"><img src="assets/bordersFF.jpg" /></td>
-</tr>
-<tr>
-	<td class="layout" style="text-align: left">
-<table style="border: 2.5mm solid aqua">
-<tr>
-    <td class="redcell">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td rowspan="2" class="redcell" style="border:5mm solid green">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td class="redcell">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-</table>
-	</td>
-</tr>
-<tr>
-	<td class="layout">
-<table>
-<tr>
-    <td class="redcell">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td rowspan="2" >1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td style="border:5mm solid yellow">1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td class="redcell">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-</table>
-	</td>
-</tr>
-</table>
-<pagebreak />
-<table class="layout">
-<tr>
-    <td class="layout">mPDF</td>
-    <td class="layout">Internet Explorer<br />IE 9</td>
-    <td class="layout">Firefox<br />v 32.0.3</td>
-</tr>
-<tr>
-	<td class="layout">
-<table class="table2">
-<tr>
-    <td style="border:2mm solid green">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td rowspan="2" class="redcell2" style="border:2mm solid teal">1</td>
-    <td style="border:2mm solid pink">1</td>
-    <td style="border:2mm solid purple">1</td>
-</tr>
-<tr>
-    <td style="border:2mm solid gray">1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td class="redcell2">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-</table>
-	</td>
-    <td class="layout" rowspan="3"><img src="assets/borders2IE.jpg" /></td>
-    <td class="layout" rowspan="3"><img src="assets/borders2FF.jpg" /></td>
-</tr>
-<tr>
-	<td class="layout" style="text-align: left">
-<table style="border: 2mm solid aqua" class="table2">
-<tr>
-    <td class="redcell2">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td rowspan="2" class="redcell2" style="border:2mm solid green">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td class="redcell2">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-</table>
-	</td>
-</tr>
-<tr>
-	<td class="layout">
-<table class="table2">
-<tr>
-    <td class="redcell2">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td rowspan="2" >1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td style="border:2mm solid yellow">1</td>
-    <td>1</td>
-</tr>
-<tr>
-    <td class="redcell2">1</td>
-    <td>1</td>
-    <td>1</td>
-</tr>
-</table>
-	</td>
-</tr>
-</table>
-<pagebreak />
-<h4>mPDF</h4>
-<table style="border: 10px solid orange">
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px double red">double red</td>
-<td style="border: 10px dashed yellow">dashed yellow</td>
-<td style="border: 10px dotted green">dotted green</td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px hidden orange">hidden </td>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px none orange">none</td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px ridge blue">ridge blue</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px groove pink">groove pink</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px inset gray">inset gray</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px outset purple">outset purple</td>
-<td style="border: 10px none orange">none </td>
-</tr>
-</table>
-<h4>Firefox 32</h4>
-<img src="assets/borders3FF.jpg" />
-<br />
-<h4>IE 9</h4>
-<img src="assets/borders3IE.jpg" />
-<pagebreak />
-<div>mPDF</div>
-<table style="border: 10px solid orange; border-collapse: separate;">
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px double red">double red</td>
-<td style="border: 10px dashed yellow">dashed yellow</td>
-<td style="border: 10px dotted green">dotted green</td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px hidden orange">hidden </td>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px none orange">none</td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px ridge blue">ridge blue</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px solid orange">Data</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px groove pink">groove pink</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px solid orange">Data</td>
-</tr>
-<tr>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px inset gray">inset gray</td>
-<td style="border: 10px none orange">none </td>
-<td style="border: 10px outset purple">outset purple</td>
-<td style="border: 10px none orange">none </td>
-</tr>
-</table>
-<div>Firefox 32</div>
-<img style="margin:0;" src="assets/borders4FF.jpg" />
-<div>IE 9</div>
-<img style="margin:0;" src="assets/borders4IE.jpg" />
-<pagebreak />
-<table style="border: 5px inset teal">
-<tr>
-<td style="border: 5px solid orange">solid orange</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px double red">double red</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px inset gray">inset gray</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px outset purple">outset purple</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px groove pink">groove pink</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px ridge blue">ridge blue</td>
-</tr>
-</table>
-<table style="border: 5px inset gray; border-collapse: separate;">
-<tr>
-<td style="border: 5px solid orange">solid orange</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px double red">double red</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px inset gray">inset gray</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px outset purple">outset purple</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px groove pink">groove pink</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px ridge blue">ridge blue</td>
-</tr>
-</table>
-<table style="border: 5px outset purple; border-collapse: separate;">
-<tr>
-<td style="border: 5px solid orange">solid orange</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px double red">double red</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px inset gray">inset gray</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px outset purple">outset purple</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px groove pink">groove pink</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px ridge blue">ridge blue</td>
-</tr>
-</table>
-<table style="border: 5px groove pink; border-collapse: separate;">
-<tr>
-<td style="border: 5px solid orange">solid orange</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px double red">double red</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px inset gray">inset gray</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px outset purple">outset purple</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px groove pink">groove pink</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px ridge blue">ridge blue</td>
-</tr>
-</table>
-<table style="border: 5px ridge blue; border-collapse: separate;">
-<tr>
-<td style="border: 5px solid orange">solid orange</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px double red">double red</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px inset gray">inset gray</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px outset purple">outset purple</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px groove pink">groove pink</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px ridge blue">ridge blue</td>
-</tr>
-</table>
-<table style="border: 5px double red; border-collapse: separate;">
-<tr>
-<td style="border: 5px solid orange">solid orange</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px double red">double red</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px inset gray">inset gray</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px outset purple">outset purple</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px groove pink">groove pink</td>
-<td style="border: 0px none black">none</td>
-<td style="border: 5px ridge blue">ridge blue</td>
-</tr>
-</table>
-</body>
-</html>
-';
+$html  = $logo . $header;
+$html .= '<br><hr style"color:  #d2d2d2"/><br>';
+$html .= '<br><br>';
+$html .= '<table width="100%">';
+$html .= '<tr>';
+$html .= '<td colspan="2">';
+$html .= '<h2>Invoice #'. $payId . '</h2><br><br>' ;
+$html .= '</td>';
+$html .= '</tr>';
+$html .= '<tr>';
+$html .= '<td valign="top">';
+$html .=  $eshop;
+$html .= '</td>';
+$html .= '<td valign="top">';
+$html .=  $customer;
+$html .= '</td>';
+$html .= '</tr>';
+$html .= '</table>';
+
+$html .= '<br><hr style"color:  #d2d2d2"/><br>';
+
+$html .= '<h3>Bought Items</h3>' ;
+
+$html .= '<table width="100%">';
+$html .= '<tr><td style="font-weight: bold">Name</td><td style="font-weight: bold">Quantity</td><td style="font-weight: bold">Price</td></tr>';
+
+        $item = '';
+        $total = 0;
+
+        foreach($orders as $item){
+        $orderDetail = $item['item'];
+
+$html .= '<tr><td colspan="3"></td></tr>
+          <tr>
+            <td  width="33%"> ' . $orderDetail->getTitle()  . ' </td>
+            <td width="33%"> ' . $item['mnozstvo'] . ' </td>
+            <td width="33%"> ' . priceformat($orderDetail->getPrice()  * $item['mnozstvo'] ) . ' </td>
+          </tr>';
+
+          $total = $orderDetail->getPrice()  * $item['mnozstvo']  + $total;
+        }
+
+$html .= '<tr><td colspan="3" align="right"><br><hr/><br><h4> To pay: '. priceformat($total)  .'</h4></td></tr>';
+$html .= '</table>';
+
+
+
+
+
+
+
 
 //generate PDF
 $mpdf = new mPDF();
-//$stylesheet = '<style>' . file_get_contents($stylesheet) . '</style>'; // external css
-$stylesheet = file_get_contents($stylesheet) ; // external css
-$mpdf->WriteHTML($stylesheet,1);
-$mpdf->WriteHTML($html,2);
-//$mpdf->Output('invoice-'.$idOrder.'.pdf','D');
-$mpdf->Output();
+$mpdf->WriteHTML($html);
+$mpdf->Output('invoice-'.$idOrder.'.pdf','D');
+//$mpdf->Output();
 exit;
 
 
