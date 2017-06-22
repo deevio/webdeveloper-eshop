@@ -71,11 +71,7 @@ class Kniha extends Product {
 				$whereHodnoty['autor'] = $autor;
 			}
 
-			if($hladaj != NULL) {
-				$whereSql .=  ' OR  authors.name LIKE :hladaj_autora  ' ;	
-				$whereHodnoty['hladaj_autora'] = '%'.$hladaj.'%';
-							
-			}
+		
 
 
 

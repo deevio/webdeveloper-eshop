@@ -37,7 +37,7 @@ $footer = '';
 $html  = $logo . $header;
 $html .= '<br><hr style"color:  #d2d2d2"/><br>';
 $html .= '<br><br>';
-$html .= '<table width="100%">';
+$html .= '<table width="100%" style="width:100%">';
 $html .= '<tr>';
 $html .= '<td colspan="2">';
 $html .= '<h2>Invoice #'. $payId . '</h2><br><br>' ;
