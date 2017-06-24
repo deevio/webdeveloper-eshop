@@ -6,6 +6,8 @@ include_once '../templates/header.php';
 
 <?php
 
+//dokoncit s triedami
+/*
 if( isset($_COOKIE['lastViewedBooks']) ){
 
     $count = count($_COOKIE['lastViewedBooks']);
@@ -31,6 +33,7 @@ if( isset($_COOKIE['lastViewedBooks']) ){
 
  
 };
+*/
 
 ?>
 

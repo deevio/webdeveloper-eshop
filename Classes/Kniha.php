@@ -38,12 +38,12 @@ class Kniha extends Product {
 	  //$allBooks = getAllBooks();
 	  //$oneBook = $allBooks[  $idKnihy  ];
 
-
 		$this->db;
 		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  '  WHERE id = :id LIMIT 1 ');
 		$sth->execute(['id' => $idKnihy]);
 		$oneBook = $sth->fetchObject(__CLASS__);
-	  return $oneBook;
+
+	  	return $oneBook;
 
 	}
 
@@ -71,12 +71,16 @@ class Kniha extends Product {
 				$whereHodnoty['autor'] = $autor;
 			}
 
-		
+ 			if($hladaj != NULL) {
+ 				$whereSql .=  ' OR  authors.name LIKE :hladaj_autora  ' ;	
+ 				$whereHodnoty['hladaj_autora'] = '%'.$hladaj.'%';
+ 							
+ 			}
 
 
 
 		$this->db;		
-		$sth = $this->db->prepare(' SELECT * FROM  ' . self::TABLE_NAME .  ' 
+		$sth = $this->db->prepare(' SELECT ' . self::TABLE_NAME .  ' .*  FROM  ' . self::TABLE_NAME .  ' 
 
 		JOIN  ' . self::TABLE_NAME_2 .  ' 
 
@@ -85,6 +89,7 @@ class Kniha extends Product {
 		WHERE  '.$whereSql.'
 
 		ORDER BY ' . $orderBy . '
+
 		LIMIT ' . $from . ', '. $limit . ' ' 
 
 		);

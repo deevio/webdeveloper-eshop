@@ -9,11 +9,11 @@
     "autoload": {
         "files": [
             "config/db.php",
+            "functions/books.php",
             "functions/content.php",
             "functions/slug.php",
             "functions/html.php",
-            "functions/thumbnail.php",
-            "functions/books.php",
+            "functions/thumbnail.php",            
             "functions/pagination.php",
             "functions/user.php"
         ],
