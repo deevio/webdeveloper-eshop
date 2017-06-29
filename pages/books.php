@@ -17,7 +17,7 @@ $getOrd = $_GET['ord'];
 	$orderBy = (
 		array_key_exists($getOrd , $orderingMap) ? 
 		$orderingMap[$getOrd] : 
-		'RAND()'
+		'id' //RAND()
 	);
 
 	//order by title asc/desc
@@ -25,7 +25,7 @@ $getOrd = $_GET['ord'];
 
 } else {
 
-	$orderBy = 'RAND()';
+	$orderBy = 'id'; //RAND()
 
 };
 

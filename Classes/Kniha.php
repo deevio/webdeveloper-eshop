@@ -70,21 +70,17 @@ class Kniha extends Product {
 				$whereSql .= '  AND  author = :autor ';
 				$whereHodnoty['autor'] = $autor;
 			}
-
+/*
  			if($hladaj != NULL) {
  				$whereSql .=  ' OR  authors.name LIKE :hladaj_autora  ' ;	
  				$whereHodnoty['hladaj_autora'] = '%'.$hladaj.'%';
  							
  			}
-
+*/
 
 
 		$this->db;		
-		$sth = $this->db->prepare(' SELECT ' . self::TABLE_NAME .  ' .*  FROM  ' . self::TABLE_NAME .  ' 
-
-		JOIN  ' . self::TABLE_NAME_2 .  ' 
-
-		ON ' . self::TABLE_NAME .  '.author = ' . self::TABLE_NAME_2 .  '.id 
+		$sth = $this->db->prepare(' SELECT *  FROM  ' . self::TABLE_NAME .  ' 
  
 		WHERE  '.$whereSql.'
 
@@ -160,7 +156,92 @@ class Kniha extends Product {
 
 	}
 
+	public function edit( $id, $nazov, $cena, $popis, $author  ) {
+        
+        $sql = 'UPDATE ' . self::TABLE_NAME .  '  SET title = :title,
+                description = :description,
+                price = :price,
+                author = :author
+                WHERE id = :id
+        ';
 
+		$this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES,false);
+
+        $query = $this->db->prepare($sql);
+        if (!$query) {
+			print_r($this->db->errorInfo());
+			return false;
+		}
+        $query->execute(array(
+            ':id' => $id,
+            ':title' => $nazov,
+            ':description' => $popis,
+            ':price' => $cena,
+            ':author' => $author
+        ));
+       
+
+        return true;
+    }
+
+
+	public function add( $nazov, $cena, $author = 1, $description ) {
+        
+        $sql = ' INSERT INTO  ' . self::TABLE_NAME .  '
+
+				(title, price, author, description)
+
+				VALUES
+				
+				(:title, :price, :author, :description)                   
+        ';  
+
+		$this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES,false);
+
+        $query = $this->db->prepare($sql);
+        if (!$query) {
+			print_r($this->db->errorInfo());
+			return false;
+		}
+
+        $query->execute(array(            
+            ':title' => $nazov,          
+            ':price' => $cena,
+			':author' => $author,
+			':description' => $descripton,
+        ));
+       
+		return $this->db->lastInsertId();
+       
+    }
+
+	public function delete( $id ) {
+        
+		if(is_numeric($id)) {
+			$sql = 'DELETE FROM  ' . self::TABLE_NAME .  '
+					WHERE id = :id  LIMIT 1
+			';
+
+			$this->db->setAttribute(\PDO::ATTR_EMULATE_PREPARES,false);
+
+			$query = $this->db->prepare($sql);
+			if (!$query) {
+				print_r($this->db->errorInfo());
+				return false;
+			}
+			$query->execute(array(
+				':id' => $id
+			));			
+
+			return true;
+
+		} else {
+
+			return false;
+
+		}
+        
+    }
 
 /*
 public function getMaxPrice( $tableName, $columnName ) {

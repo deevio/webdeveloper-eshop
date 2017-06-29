@@ -10,16 +10,40 @@ $(document).ready(function() {
 
         //console.table(data);
         var books = '';
-        books = `        
-            <thead>
+
+        
+        books += ` 
+        <form class="add">
+            <table class="table table-condensed"> 
+                <tr>
+                    <td colspan="4"><strong>Add book</strong> </td>
+                </tr>        
+                <tr>
+                    <td class="col-sm-12 col-md-3"><input placeholder="name" class="form-control" type="text" name="nameAdd" /></td>
+                    <td class="col-sm-12 col-md-3"><input  placeholder="price" class="form-control" type="text" name="priceAdd" /></td>
+                    <td class="col-sm-12 col-md-3"><input  class="form-control" type="file" name="photo[]" multiple/></td>
+                    <td class="col-sm-12 col-md-1"><input type="button" class="form-control btn btn-info" name="add" value="add" /></td>                
+                </tr>
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                </tr>
+            </table>
+        </form>
+            `;
+
+        books += `  
+        <form class="change">      
+           <table class="table table-condensed">
                 <tr>
                     <th class="col-sm-12 col-md-3">Name</th>
                     <th class="col-sm-12 col-md-3">Price</th>
-                    <th class="col-sm-12 col-md-1">Edit</th>
+                    <th class="col-sm-12 col-md-3">Description</th>
+                    <th class="col-sm-12 col-md-2">Edit</th>
                     <th class="col-sm-12 col-md-1">Delete</th>                    
                 </tr>   
-            </thead>     
+                
         `;
+
         
         $.each(data, function(index, kniha) {
 
@@ -27,18 +51,21 @@ $(document).ready(function() {
             
             books += `
             
-                <tr>
+                <tr id="${kniha.id}">
                     <td>
                         <input type="text" class="form-control" name="title[${kniha.id}]" value="${kniha.title}"/>
                     </td>
                     <td>
                         <input type="text" class="form-control" name="price[${kniha.id}]" value="${kniha.cena}"/>
-                    </td>                    
+                    </td>  
+                    <td>
+                        <input type="text" class="form-control" name="description[${kniha.id}]" value="${kniha.description}"/>
+                    </td>                     
                     <td>                        
-                       <input type="button" class="form-control" name="save" value="save" class="btn btn-success" data-id="${kniha.id}"/>
+                       <input type="button" class="form-control btn btn-success" name="save" value="save"  data-id="${kniha.id}"/>
                     </td>
                     <td>                        
-                        <input type="button" class="form-control" name="delete" value="delete" class="btn btn-danger" data-id="${kniha.id}"/>
+                        <input type="button" class="form-control btn btn-danger" name="delete" value="delete"  data-id="${kniha.id}"/>
                         <input type="hidden"  name="id"  value="${kniha.id} "/>
                     </td>                    
                 </tr>    
@@ -53,6 +80,8 @@ $(document).ready(function() {
             // console.log(a);  
 
         });
+
+        books += '</table></form>';
         
 
         var a = $('#listOfBooks').html(books);
@@ -63,25 +92,77 @@ $(document).ready(function() {
             var buttonClicked =  $(this);
             var id = buttonClicked.data('id');
 
-            console.log(id);
-            console.log($('input[name="save"]'));
+            //console.log(id);
+            //console.log($('input[name="save"]'));
 
             var title = $(`[name="title[${id}]"]`).val();
             var price = $(`[name="price[${id}]"]`).val();
+            var description = $(`[name="description[${id}]"]`).val();
 
             //var title = $('input[title="id[  ]"]').val();
-            $.post('http://eshop/data/book/' + id, {
+            $.post('http://eshop/data/books/' + id, {
 
                 id,
                 title,
                 price,
+                description,
+
+            }).done(function(returnedData) {
+        
+                $('#' + returnedData.id).css("border","green solid 3px");
+             
+                
+                //alert(returnedData.id);
 
             });
       
         });
 
-    });
 
+        $('input[name="delete"]').on('click', function() {
+
+            var buttonClicked =  $(this);
+            var id = buttonClicked.data('id');     
+          
+            $.post('http://eshop/data/book/delete/' + id, {
+
+                id              
+
+            }).done(function(returnedData) {
+        
+                console.table(returnedData);
+                $('#' + returnedData.id).fadeOut(800);
+            });
+;
+      
+        });
+
+
+
+        $('input[name="add"]').on('click', function() {
+        
+
+            var title = $(`[name="nameAdd"]`).val();
+            var price = $(`[name="priceAdd"]`).val();
+
+       
+            $.ajax( {
+                url: 'http://eshop/data/book/add',
+                type: 'POST',
+                contentType: 'multipart/form-data',
+                data: new FormData( $('form.add')[0] ),
+                processData: false,
+                contentType: false
+            } ).done(function(returnedData) {
+                
+                console.table(returnedData);
+                // dataKtorePrisli.title
+            });
+
+      
+        });
+
+    });
 
 
 });

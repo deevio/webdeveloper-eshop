@@ -1,23 +1,34 @@
 <?php 
+use Classes\Kniha;
+
+$listOfBooks = new Kniha;
+$books = $listOfBooks->getBooks();
+
 
 header('Content-type: text/json');
 header('Access-Control-Allow-Origin: *') ;
 //cors
 
 
-$listOfBooks = [];
-
-for($i = 1; $i <= 40; $i++){
-	$listOfBooks[] = 
-	(object) [
-		'id' => $i,
-		'title' => 'Pohyblivy sviatok',
-		'cena' => rand(10, 100),
-		//'url' => buildBookUrl('Pohyblivy sviatok', $i), 
+$data = [];
+// transformacia na data
+foreach ($books as $book) {
+	//var_dump($book);
+	
+	$data[] = (object) [
+		'id' => $book->getId(),
+		'title' => $book->getTitle(),
+		'cena' => $book->getPrice(),
+		'description' => $book->getDescription(),
 	];
-};
+	
+}
 
-echo json_encode($listOfBooks);
+echo json_encode($data);
 
 
 ?>
+
+
+
+

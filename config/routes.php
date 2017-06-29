@@ -125,9 +125,29 @@ Router::route('GET', '/data/books', function($url){
   include '../pages/data/books.php';
 });
 
+
 Router::route('GET', '/data/book/(\d+)', function($url, $idBook){
   include '../pages/data/book.php';
 });
+
+
+Router::route('POST', '/data/book/delete/(\d+)', function($url, $idBook){
+  include '../pages/data/bookDelete.php';
+});
+
+
+
+Router::route('POST', '/data/books/(\d+)', function($url){ //add id
+  include '../pages/data/bookSave.php';
+});
+
+Router::route('POST', '/data/book/add', function($url){
+  include '../pages/data/bookAdd.php';
+});
+
+
+
+
 
 Router::execute();
 
