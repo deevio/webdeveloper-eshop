@@ -1,7 +1,10 @@
 $(document).ready(function() {
 
-    //console.log('ok');
+ viewTable();
 
+ function viewTable() {   
+    
+    //view 
     $.get(
         'http://eshop/data/books'
     )
@@ -34,7 +37,7 @@ $(document).ready(function() {
 
         books += `  
         <form class="change">      
-           <table class="table table-condensed">
+        <table class="table table-condensed">
                 <tr>
                     <th class="col-sm-12 col-md-3">Name</th>
                     <th class="col-sm-12 col-md-3">Price</th>
@@ -61,25 +64,33 @@ $(document).ready(function() {
                         <input type="text" class="form-control" name="description[${kniha.id}]" value="${kniha.description}"/>
                     </td>                     
                     <td>                        
-                       <input type="button" class="form-control btn btn-success" name="save" value="save"  data-id="${kniha.id}"/>
+                    <input type="button" class="form-control btn btn-success" name="save" value="save"  data-id="${kniha.id}"/>
                     </td>
                     <td>                        
                         <input type="button" class="form-control btn btn-danger" name="delete" value="delete"  data-id="${kniha.id}"/>
                         <input type="hidden"  name="id"  value="${kniha.id} "/>
                     </td>                    
                 </tr>    
-                   
+                
             `;          
 
-          
+        
 
         });
 
         books += '</table></form>';
         
-
+    
         var a = $('#listOfBooks').html(books);
+    
 
+
+
+
+
+
+
+        //edit
 
         $('input[name="save"]').on('click', function() {
 
@@ -103,7 +114,8 @@ $(document).ready(function() {
             } ).done(function(returnedData) {
                 
                 var idTr = '#' + returnedData.id;
-                ok(idTr );
+                ok(idTr );  
+                reloadData();             
 
                 if(returnedData.errorCode){
                     alert(returnedData.errorMessage);
@@ -142,7 +154,7 @@ $(document).ready(function() {
                     alert(returnedData.errorMessage);
                 };
             });
-;
+
       
         });
 
@@ -159,7 +171,7 @@ $(document).ready(function() {
             } ).done(function(returnedData) {
 
                  ok('#add');
-                                  
+                 reloadData();                 
             });
 
       
@@ -167,14 +179,19 @@ $(document).ready(function() {
 
     });
 
-    function ok(sel){
-       
+
+
+    function ok(sel){       
         $(sel).css("background", 'lightgreen');
         setTimeout(function(){
         $(sel).css("background", 'white');}, 1000);
     };
             
 
+    function reloadData() {
+        setTimeout(function(){ viewTable() }, 1000); 
+    }
 
+ };
 
 });
