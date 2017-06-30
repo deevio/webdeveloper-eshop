@@ -30,6 +30,19 @@
         return $id;
     }
 
+/**
+* is logged user Admin?
+* @return bool true - is admin
+*/
+    function isAdmin() {
+
+        if( isset($_SESSION['privileges']) && $_SESSION['privileges'] == 1 ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
      
 
 ?>

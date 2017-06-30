@@ -28,7 +28,11 @@
               <li <?php echo ($url == '/registration') ? 'class="active"' : ''; ?>><a href="/registration">Registration</a></li>
               <li <?php echo ($url == '/login') ? 'class="active"' : ''; ?>><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
               <?php } else { ?>
+              
+              <?php if(  isAdmin() ) { ?>
               <li <?php echo ($url == '/admin/books') ? 'class="active"' : ''; ?>><a href="/admin/books">Admin</a></li> 
+              <?php } ?> 
+
               <li <?php echo ($url == '/user') ? 'class="active"' : ''; ?>><a href="/user"><span class="glyphicon glyphicon-user"></span> User info</a></li>
               <li <?php echo ($url == '/orders') ? 'class="active"' : ''; ?>><a href="/orders"><span class="glyphicon glyphicon-list"></span> Orders</a></li> 
               <li <?php echo ($url == '/logout') ? 'class="active"' : ''; ?>><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>

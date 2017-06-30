@@ -1,6 +1,6 @@
 <?php 
 
-$idUser = (!isLoggedIn()) ? header('Location: /') : '' ;
+$idUser = ( !isAdmin() ) ? header('Location: /') : '' ; 
 
 
 $data = [];

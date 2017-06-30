@@ -51,7 +51,7 @@ class User {
     
     public function login($email, $pass) {
 
-        $sql = 'SELECT id, pass FROM ' .  self::TABLE_NAME . '  WHERE 
+        $sql = 'SELECT id, pass, privileges FROM ' .  self::TABLE_NAME . '  WHERE 
 
         email =  :email  LIMIT 1 ' ;
 
@@ -63,13 +63,17 @@ class User {
         $result = $query->fetchAll();
         
         if($result){
+
             $id =  $result[0]['id'];
-            $hash = $result[0]['pass'];
+            $hash = $result[0]['pass'];    
+            $privileges = $result[0]['privileges'];        
+            
             $verify =  password_verify($pass, $hash);
         }
 //opravit 
         if($verify) {
             $_SESSION[self::__USER__] = $id;
+            $_SESSION['privileges'] = $privileges;
         }
 
         return $verify;   
@@ -167,6 +171,7 @@ class User {
 
     public function logout() {
          unset($_SESSION[self::__USER__] );
+         unset($_SESSION['privileges']); //1 = admin
          unset($_SESSION[self::__CART__]);
     }
     
