@@ -4,6 +4,7 @@ class Kniha extends Product {
 
 	const TABLE_NAME = 'products';
 	const TABLE_NAME_2 = 'authors';
+	const PATH_LIBRARY = __DIR__ . '/../public/library/' ;
 
 	protected $pocetStran;
 	protected $excerpt;
@@ -185,7 +186,7 @@ class Kniha extends Product {
     }
 
 
-	public function add( $nazov, $cena, $author = 1, $description ) {
+	public function add( $nazov, $cena, $author = 1, $description = '' ) {
         
         $sql = ' INSERT INTO  ' . self::TABLE_NAME .  '
 
@@ -208,7 +209,7 @@ class Kniha extends Product {
             ':title' => $nazov,          
             ':price' => $cena,
 			':author' => $author,
-			':description' => $descripton,
+			':description' => $description,
         ));
        
 		return $this->db->lastInsertId();
@@ -231,7 +232,9 @@ class Kniha extends Product {
 			}
 			$query->execute(array(
 				':id' => $id
-			));			
+			));	
+
+			$deleteImages = $this->deleImages($id);
 
 			return true;
 
@@ -243,6 +246,84 @@ class Kniha extends Product {
         
     }
 
+	public function getImage($id) {
+
+		$image =  $this->getImages($id);
+
+		if ($image) {
+			return $image[0];
+		} else {
+			return false;
+		}
+
+	}
+
+	public function getImages($id) {
+
+		//$supportedFormats = array('gif','jpg','jpeg','png');
+
+		$images = [];
+
+		$path = self::PATH_LIBRARY . $id;
+		
+		if(is_dir($path)) {
+			$dir = opendir($path);
+
+			while(true == ($image = readdir($dir)) ) {
+				
+				if($image !== '.' && $image !== '..') {
+					$images[] = $image;
+				}		
+
+			}
+
+			closedir($dir);
+
+			return $images;
+			
+		} else {
+
+			return false;
+
+		}
+
+		
+	}
+
+
+
+	public function deleImages($id) {
+
+		if(is_numeric($id )){
+
+			if(is_dir(self::PATH_LIBRARY . $id )){
+
+				$images =  $this->getImages($id);
+
+				foreach($images as $image){
+
+					unlink(self::PATH_LIBRARY . $id . '/' . $image);
+
+				}	
+
+				if( rmdir(self::PATH_LIBRARY . $id) ) {
+
+					return true; //ok
+
+				} else {
+
+					return false;
+
+				}
+
+			}			
+
+		} else {
+
+			return false;
+		}
+		
+	}
 /*
 public function getMaxPrice( $tableName, $columnName ) {
 	

@@ -25,6 +25,7 @@ $listOfBooks = [];
 
 $book = new Classes\Kniha;
 $book = $book->getById($idBook);
+$images = $book->getImages($idBook);
 
 
 $data = [
@@ -32,6 +33,8 @@ $data = [
 	'idBook' => $idBook,
 	'book'=> $book, 
 	'slug' => $slug,
+	'images' => $images,
+	'path' => '/library/',
 ];
 
 

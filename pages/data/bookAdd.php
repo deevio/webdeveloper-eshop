@@ -5,10 +5,10 @@ header('Content-Type: text/json');
 header('Access-Control-Allow-Origin: *');
 
 
-$price = $_POST['price'];
-$title = $_POST['title'];
-$description = $_POST['description'];
-$author = ( isset($_POST['author']) ) ? $_POST['author'] : 1 ;
+$price =  htmlentities($_POST['priceAdd']);
+$title =  htmlentities($_POST['nameAdd']);
+$description = ( isset($_POST['descriptionAdd']) ) ?  htmlentities($_POST['descriptionAdd']) : '' ;
+$author = ( isset($_POST['authorAdd']) ) ?  htmlentities($_POST['authorAdd']) : 1 ;
 
 // validacia vstupu
 if (empty($title)) {
@@ -21,7 +21,7 @@ if (empty($title)) {
 
 	$kniha = new Classes\Kniha;
 
-	$add  = $kniha->add( $title, $price, $description );
+	$add  = $kniha->add( $title, $price, $author, $description );
 
         if($add){
             $data = (object) [	
@@ -38,7 +38,7 @@ if (empty($title)) {
             $data = [
             'errorCode' => 350,
             'errorMessage' => 'produkt sa nepodarilo pridat',
-            'lId' => $add
+            'insertedId' => $add
             ];
         }
 
@@ -54,17 +54,25 @@ if (!empty($_FILES['photo']['tmp_name'][0])) {
     mkdir($adresar, 0744);
 
 
-	foreach ($_FILES['photo']['tmp_name'] as $tmpName) {
+    $count = count($_FILES['photo']['tmp_name']);
+    for($i = 0; $i < $count; $i++) {
+
+        $file_tmp = $_FILES['photo']['tmp_name'][$i];
+        $file_name = $_FILES['photo']['name'][$i];
+
+    
 		if (
 			!move_uploaded_file(
-				$tmpName,
-				sprintf('%s/%s', $adresar, sha1_file($tmpName))
+				$file_tmp,
+				sprintf('%s/%s', $adresar, sha1_file($file_tmp ).'-'.$file_name)
 			)
 		) {
 		    throw new RuntimeException('Failed to move uploaded file.');
 		}
-	}
+
+    }
+
 }
 
-echo json_encode($_POST['title']);
+echo json_encode($data);
 ?>

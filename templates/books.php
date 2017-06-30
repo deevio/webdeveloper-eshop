@@ -68,11 +68,22 @@
 
 foreach($books as $book){ 
 
-
     //$excerpt = 'Lorem ipsum  Lorem ipsum Lorem ipsum Lorem ipsum ';
-    $imgUrl = 'https://placeimg.com/345/280/people/' . rand(1, 20);
 
-    echo thumbnail($book->getId(), $book->getTitle() , $book->getDescription() , $book->getPrice(), $book->getUrl(), $imgUrl);
+    //image
+
+    $idB = $book->getId();
+    $image = $book->getImage($idB);
+    $imagePath = $path . $idB . '/' . $image ;
+
+    if( $image  ) {
+        $imgUrl = $imagePath;
+    } else {
+         $imgUrl = 'https://placeimg.com/345/280/people/' . rand(1, 20);
+    }
+   
+
+    echo thumbnail($idB, $book->getTitle() , $book->getDescription() , $book->getPrice(), $book->getUrl(), $imgUrl);
 
 };
 

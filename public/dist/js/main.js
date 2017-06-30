@@ -18,10 +18,11 @@ $(document).ready(function() {
                 <tr>
                     <td colspan="4"><strong>Add book</strong> </td>
                 </tr>        
-                <tr>
-                    <td class="col-sm-12 col-md-3"><input placeholder="name" class="form-control" type="text" name="nameAdd" /></td>
-                    <td class="col-sm-12 col-md-3"><input  placeholder="price" class="form-control" type="text" name="priceAdd" /></td>
-                    <td class="col-sm-12 col-md-3"><input  class="form-control" type="file" name="photo[]" multiple/></td>
+                <tr id="add">
+                    <td class="col-sm-12 col-md-2"><input placeholder="name" class="form-control" type="text" name="nameAdd" /></td>
+                    <td class="col-sm-12 col-md-2"><input  placeholder="price" class="form-control" type="text" name="priceAdd" /></td>
+                    <td class="col-sm-12 col-md-2"><input  placeholder="description" class="form-control" type="text" name="descriptionAdd" /></td>
+                    <td class="col-sm-12 col-md-2"><input  class="form-control" type="file" name="photo[]" multiple/></td>
                     <td class="col-sm-12 col-md-1"><input type="button" class="form-control btn btn-info" name="add" value="add" /></td>                
                 </tr>
                 <tr>
@@ -46,8 +47,6 @@ $(document).ready(function() {
 
         
         $.each(data, function(index, kniha) {
-
-
             
             books += `
             
@@ -99,22 +98,25 @@ $(document).ready(function() {
             var price = $(`[name="price[${id}]"]`).val();
             var description = $(`[name="description[${id}]"]`).val();
 
-            //var title = $('input[title="id[  ]"]').val();
-            $.post('http://eshop/data/books/' + id, {
-
-                id,
-                title,
-                price,
-                description,
-
-            }).done(function(returnedData) {
         
-                $('#' + returnedData.id).css("border","green solid 3px");
              
+            $.ajax( {
+                url: 'http://eshop/data/books/' + id,
+                type: 'PUT',                
+                data: 'title=' + title +  '&price=' + price + '&description=' + description ,
+                processData: false,
+                contentType: false
+            } ).done(function(returnedData) {
                 
-                //alert(returnedData.id);
+                var idTr = '#' + returnedData.id;
+                ok(idTr );
+
+                if(returnedData.errorCode){
+                    alert(returnedData.errorMessage);
+                };
 
             });
+
       
         });
 
@@ -132,6 +134,10 @@ $(document).ready(function() {
         
                 console.table(returnedData);
                 $('#' + returnedData.id).fadeOut(800);
+
+                if(returnedData.errorCode){
+                    alert(returnedData.errorMessage);
+                };
             });
 ;
       
@@ -140,29 +146,32 @@ $(document).ready(function() {
 
 
         $('input[name="add"]').on('click', function() {
-        
-
-            var title = $(`[name="nameAdd"]`).val();
-            var price = $(`[name="priceAdd"]`).val();
-
-       
+             
             $.ajax( {
                 url: 'http://eshop/data/book/add',
-                type: 'POST',
-                contentType: 'multipart/form-data',
+                type: 'POST',                
                 data: new FormData( $('form.add')[0] ),
                 processData: false,
                 contentType: false
             } ).done(function(returnedData) {
-                
-                console.table(returnedData);
-                // dataKtorePrisli.title
+
+                 ok('#add');
+                                  
             });
 
       
         });
 
     });
+
+    function ok(sel){
+       
+        $(sel).css("background", 'lightgreen');
+        setTimeout(function(){
+        $(sel).css("background", 'white');}, 1000);
+    };
+            
+
 
 
 });

@@ -50,7 +50,8 @@ $data = [
 	'idPage'=>  (isset($idPage)) ? $idPage : 1,
 	'pocetKnih'=> $listOfBooks->count,
 	'authors' => $authors,
-	'limit' => $limit,	
+	'limit' => $limit,
+	'path' => '/library/',	
 ];
 
 

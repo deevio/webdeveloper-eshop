@@ -1,12 +1,22 @@
 <?php
 
+parse_str(file_get_contents('php://input'), $put);
+
+foreach($put as $key => $value){
+
+	unset($put[$key]);
+	$put[str_replace('amp;', '', $key)]  = $value;
+}
+
+
+
 header('Content-Type: text/json');
 header('Access-Control-Allow-Origin: *');
 
-$id = $_POST['id'];
-$price = $_POST['price'];
-$title = $_POST['title'];
-$description = $_POST['description'];
+$id = htmlentities($idBook);
+$price =  htmlentities($put['price']);
+$title =  htmlentities($put['title']);
+$description =  htmlentities($put['description']);
 
 // validacia vstupu
 if (!is_numeric($id)) {

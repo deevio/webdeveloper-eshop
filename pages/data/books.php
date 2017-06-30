@@ -2,7 +2,7 @@
 use Classes\Kniha;
 
 $listOfBooks = new Kniha;
-$books = $listOfBooks->getBooks();
+$books = $listOfBooks->getBooks(0, 12, ' id DESC');
 
 
 header('Content-type: text/json');

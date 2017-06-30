@@ -10,7 +10,21 @@
             echo '<br>';            
             echo '<br>';
             echo 'Price: <strong>' . priceformat($book->getPrice()) . '</strong>';            
-            echo '<br>';            
+            echo '<br>';
+
+            echo '<hr>';
+
+            if(count($images) > 0){
+                foreach($images as $image) {
+
+                    echo '<img src="'. $path . $idBook . '/' .$image .'" class="img-thumbnail" alt="image" width="200" style="margin-right: 10px;" >';
+
+                }
+            }
+
+           
+
+
             echo '<br>'; 
             echo '<br>'; 
             echo backButton();
