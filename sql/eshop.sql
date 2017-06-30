@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Pi 30.Jún 2017, 14:55
+-- Čas generovania: Pi 30.Jún 2017, 16:47
 -- Verzia serveru: 10.1.21-MariaDB
 -- Verzia PHP: 5.6.30
 
@@ -220,14 +220,12 @@ INSERT INTO `products` (`id`, `title`, `price`, `description`, `excerpt`, `autho
 (88, 'Kniha 88', '73.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
 (89, 'Kniha 89', '46.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
 (90, 'Kniha 90', '51.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(92, 'Kniha 92', '32.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(94, 'Kniha 94', '57.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(95, 'Kniha 95', '56.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
+(92, 'Kniha 92', '32.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
 (96, 'Kniha 96', '54.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
 (97, 'Kniha 97', '59.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
 (98, 'Kniha 98', '24.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(99, 'Kniha 99', '22.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
-(100, 'Kniha 100', '26.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
+(99, 'Kniha 99', '87.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
+(100, 'Kniha 100', '666.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
 (130, 'gdd', '99999999.99', '', '', 1, 0),
 (131, 'gdd', '99999999.99', '', '', 1, 0),
 (132, 'gdd', '99999999.99', '', '', 1, 0),
@@ -236,8 +234,7 @@ INSERT INTO `products` (`id`, `title`, `price`, `description`, `excerpt`, `autho
 (135, 'gdd', '99999999.99', '', '', 1, 0),
 (166, 'testtttt', '878787.00', '', '', 1, 0),
 (172, 'sfsd', '456454.00', 'dfdgdfg', '', 1, 0),
-(178, 'Otec ma zderie tak ci tak', '22.00', 'Lorem ipsum lorem ipsummmmmm', '', 1, 0),
-(180, 'testere', '54.00', 'fhfhfg', '', 1, 0);
+(178, 'Otec ma zderie tak, Äi tak', '1618.00', 'Mal&yacute; Vinco (PETER HOLO&Scaron;KA) t&uacute;Å¾i hraÅ¥ v dedinskej dychovej kapele aj napriek tomu, Å¾e podÄ¾a uÄiteÄ¾ov nem&aacute; hudobn&yacute; sluch. ', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -261,7 +258,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `pass`, `address`, `date`, `privileges`) VALUES
 (4, 'apredsa', 'one@gmail.com', '$2y$10$pBM6LZjdN/uXCcE8c5wl2.650l0tB1XRRdnZsjNHomwXp9zoxbOlW', 'Tulipanovo Duhova  339', 1496948069, 1),
-(5, 'tester', 'fff@gmail.com', '$2y$10$w3rsJ7UYAFJzYqNinwfxMuMHQxVin5u/DED6aQcehLVE6P74XcXXy', 'adresaaaaa 33333', 1497724900, 0);
+(5, 'tester', 'fff@gmail.com', '$2y$10$w3rsJ7UYAFJzYqNinwfxMuMHQxVin5u/DED6aQcehLVE6P74XcXXy', 'adresaaaaa 33333', 1497724900, 0),
+(7, 'test', 'test@test.sk', '$2y$10$fL7wDOFFAKYOug/YJ6/39OMDAZMLSb/kAchKPvx1TKx2et8vvQmQW', 'tst', 1498829670, 0);
 
 --
 -- Kľúče pre exportované tabuľky
