@@ -1,9 +1,20 @@
 <?php
 
+
+parse_str(file_get_contents('php://input'), $delete);
+
+foreach($delete as $key => $value){
+
+	unset($delete[$key]);
+	$delete[str_replace('amp;', '', $key)]  = $value;
+}
+
+
+
 header('Content-Type: text/json');
 header('Access-Control-Allow-Origin: *');
 
-$id = $_POST['id'];
+$id = $delete['id'];
 
 
 // validacia vstupu

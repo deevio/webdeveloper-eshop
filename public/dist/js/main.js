@@ -69,14 +69,9 @@ $(document).ready(function() {
                     </td>                    
                 </tr>    
                    
-            `;
-           
+            `;          
 
-            //console.log(books);
-
-            //var a = $('#zoznamKnih').html(books);
-
-            // console.log(a);  
+          
 
         });
 
@@ -91,8 +86,7 @@ $(document).ready(function() {
             var buttonClicked =  $(this);
             var id = buttonClicked.data('id');
 
-            //console.log(id);
-            //console.log($('input[name="save"]'));
+           
 
             var title = $(`[name="title[${id}]"]`).val();
             var price = $(`[name="price[${id}]"]`).val();
@@ -130,7 +124,16 @@ $(document).ready(function() {
 
                 id              
 
-            }).done(function(returnedData) {
+            })
+             $.ajax( {
+
+                url: 'http://eshop/data/book/delete/' + id,
+                type: 'DELETE',                
+                data: 'id=' + id  ,
+                processData: false,
+                contentType: false
+
+            } ).done(function(returnedData) {
         
                 console.table(returnedData);
                 $('#' + returnedData.id).fadeOut(800);

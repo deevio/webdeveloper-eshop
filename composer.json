@@ -4,7 +4,8 @@
     "type": "project",
     "require": {
         "bacon/bacon-qr-code": "^1.0",
-        "mpdf/mpdf": "^6.1"
+        "mpdf/mpdf": "^6.1",
+        "swiftmailer/swiftmailer": "5.4.8"
     },
     "autoload": {
         "files": [

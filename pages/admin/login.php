@@ -2,7 +2,7 @@
 use Classes\User;
 
 
-$idUser = (isLoggedIn()) ? header('Location: /') : '' ;
+$idUser = (isLoggedIn()) ? header('Location: /admin/books') : '' ;
 
 $stav = NULL;
 

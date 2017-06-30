@@ -120,11 +120,11 @@ Router::route('GET', '/admin/books', function($url){
   include '../pages/admin/books.php';
 });
 
-Router::route('GET', '/admin/', function($url){
+Router::route('GET', '/admin', function($url){
   include '../pages/admin/login.php';
 });
 
-Router::route('POST', '/admin/', function($url){
+Router::route('POST', '/admin', function($url){
   include '../pages/admin/login.php';
 });
 
@@ -140,7 +140,7 @@ Router::route('GET', '/data/book/(\d+)', function($url, $idBook){
 });
 
 
-Router::route('POST', '/data/book/delete/(\d+)', function($url, $idBook){
+Router::route('DELETE', '/data/book/delete/(\d+)', function($url, $idBook){
   include '../pages/data/bookDelete.php';
 });
 
