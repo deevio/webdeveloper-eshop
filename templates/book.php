@@ -14,7 +14,7 @@
 
             echo '<hr>';
 
-            if(count($images) > 0){
+            if($images) {
                 foreach($images as $image) {
 
                     echo '<img src="'. $path . $idBook . '/' .$image .'" class="img-thumbnail" alt="image" width="200" style="margin-right: 10px;" >';

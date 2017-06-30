@@ -234,7 +234,7 @@ class Kniha extends Product {
 				':id' => $id
 			));	
 
-			$deleteImages = $this->deleImages($id);
+			$deleteImages = $this->deleteImages($id);
 
 			return true;
 
@@ -292,7 +292,7 @@ class Kniha extends Product {
 
 
 
-	public function deleImages($id) {
+	public function deleteImages($id) {
 
 		if(is_numeric($id )){
 

@@ -117,9 +117,9 @@ $(document).ready(function() {
                 ok(idTr );  
                 reloadData();             
 
-                if(returnedData.errorCode){
-                    alert(returnedData.errorMessage);
-                };
+                //if(returnedData.errorCode){
+                    //alert(returnedData.errorMessage);
+                //};
 
             });
 
