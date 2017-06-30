@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Št 29.Jún 2017, 09:25
+-- Čas generovania: Pi 30.Jún 2017, 14:55
 -- Verzia serveru: 10.1.21-MariaDB
 -- Verzia PHP: 5.6.30
 
@@ -98,7 +98,9 @@ INSERT INTO `orders` (`id`, `user_id`, `customer`, `email`, `items`, `address`, 
 (34, 4, 'apredsa', 'apredsa@gmail.com', 'a:2:{i:64;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"64\";s:8:\"\0*\0title\";s:8:\"Kniha 64\";s:8:\"\0*\0price\";s:5:\"65.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:45;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"45\";s:8:\"\0*\0title\";s:8:\"Kniha 45\";s:8:\"\0*\0price\";s:5:\"23.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}}', 'Tulipanovo Duhova  33', 1497376869, 5),
 (35, 4, 'apredsa', 'apredsa@gmail.com', 'a:6:{i:27;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"27\";s:8:\"\0*\0title\";s:8:\"Kniha 27\";s:8:\"\0*\0price\";s:5:\"50.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:71;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"71\";s:8:\"\0*\0title\";s:8:\"Kniha 71\";s:8:\"\0*\0price\";s:5:\"37.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:91;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"91\";s:8:\"\0*\0title\";s:8:\"Kniha 91\";s:8:\"\0*\0price\";s:5:\"18.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:1;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:1:\"1\";s:8:\"\0*\0title\";s:7:\"Kniha 1\";s:8:\"\0*\0price\";s:5:\"17.00\";s:14:\"\0*\0description\";s:132:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. hej toto\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:2;}i:33;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"33\";s:8:\"\0*\0title\";s:8:\"Kniha 33\";s:8:\"\0*\0price\";s:5:\"40.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:21;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"21\";s:8:\"\0*\0title\";s:8:\"Kniha 21\";s:8:\"\0*\0price\";s:5:\"45.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}}', 'Tulipanovo Duhova  33', 1497546116, 0),
 (36, 4, 'apredsa', 'apredsa@gmail.com', 'a:1:{i:98;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"98\";s:8:\"\0*\0title\";s:8:\"Kniha 98\";s:8:\"\0*\0price\";s:5:\"24.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}}', 'Tulipanovo Duhova  33', 1497598657, 0),
-(37, 4, 'apredsa', 'apredsa@gmail.com', 'a:6:{i:69;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"69\";s:8:\"\0*\0title\";s:8:\"Kniha 69\";s:8:\"\0*\0price\";s:5:\"30.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:88;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"88\";s:8:\"\0*\0title\";s:8:\"Kniha 88\";s:8:\"\0*\0price\";s:5:\"73.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:11;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"11\";s:8:\"\0*\0title\";s:8:\"Kniha 11\";s:8:\"\0*\0price\";s:5:\"44.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:61;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"61\";s:8:\"\0*\0title\";s:8:\"Kniha 61\";s:8:\"\0*\0price\";s:5:\"67.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:65;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"65\";s:8:\"\0*\0title\";s:8:\"Kniha 65\";s:8:\"\0*\0price\";s:5:\"54.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:27;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"27\";s:8:\"\0*\0title\";s:8:\"Kniha 27\";s:8:\"\0*\0price\";s:5:\"50.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}}', 'Duhova  339', 1497610248, 0);
+(37, 4, 'apredsa', 'apredsa@gmail.com', 'a:6:{i:69;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"69\";s:8:\"\0*\0title\";s:8:\"Kniha 69\";s:8:\"\0*\0price\";s:5:\"30.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:88;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"88\";s:8:\"\0*\0title\";s:8:\"Kniha 88\";s:8:\"\0*\0price\";s:5:\"73.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:11;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"11\";s:8:\"\0*\0title\";s:8:\"Kniha 11\";s:8:\"\0*\0price\";s:5:\"44.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:61;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"61\";s:8:\"\0*\0title\";s:8:\"Kniha 61\";s:8:\"\0*\0price\";s:5:\"67.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:65;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"65\";s:8:\"\0*\0title\";s:8:\"Kniha 65\";s:8:\"\0*\0price\";s:5:\"54.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}i:27;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"27\";s:8:\"\0*\0title\";s:8:\"Kniha 27\";s:8:\"\0*\0price\";s:5:\"50.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}}', 'Duhova  339', 1497610248, 0),
+(38, 4, 'apredsa', 'apredsa@gmail.com', 'a:1:{i:19;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"19\";s:8:\"\0*\0title\";s:10:\"Kniha 4444\";s:8:\"\0*\0price\";s:6:\"777.00\";s:14:\"\0*\0description\";s:18:\"Lorem ipsum dolor \";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}}', 'Tulipanovo Duhova  339', 1498806774, 5),
+(39, 4, 'apredsa', 'one@gmail.com', 'a:1:{i:32;a:2:{s:4:\"item\";O:13:\"Classes\\Kniha\":6:{s:5:\"\0*\0id\";s:2:\"32\";s:8:\"\0*\0title\";s:8:\"Kniha 32\";s:8:\"\0*\0price\";s:5:\"34.00\";s:14:\"\0*\0description\";s:123:\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\";s:10:\"\0*\0excerpt\";s:29:\"Lorem ipsum dolor sit amet...\";s:13:\"\0*\0pocetStran\";N;}s:8:\"mnozstvo\";i:1;}}', 'Tulipanovo Duhova  33', 1498821639, 0);
 
 -- --------------------------------------------------------
 
@@ -152,30 +154,6 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `price`, `description`, `excerpt`, `author`, `gallery`) VALUES
-(1, 'Kniha 13', '65.00', '', 'Lorem ipsum dolor sit amet...', 1, 0),
-(2, 'Kniha 42', '77.00', '', 'Lorem ipsum dolor sit amet...', 1, 0),
-(3, 'Kniha 91', '20.00', '', 'Lorem ipsum dolor sit amet...', 1, 0),
-(4, 'Kniha 4', '26.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(5, 'Kniha 5', '46.00', '', 'Lorem ipsum dolor sit amet...', 1, 0),
-(6, 'Kniha 6', '63.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(7, 'Kniha 7', '25.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(8, 'Kniha 8', '13.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(9, 'Kniha 9', '28.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(10, 'Kniha 10', '36.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(11, 'Kniha 11', '44.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(12, 'Kniha 12', '15.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(13, 'Kniha 13', '62.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(14, 'Kniha 14', '73.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(15, 'Kniha 15', '51.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(16, 'Kniha 16', '20.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(17, 'Kniha 17', '13.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(18, 'Kniha 18', '11.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(19, 'Kniha 19', '28.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(20, 'Kniha 20', '52.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(21, 'Kniha 21', '45.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(22, 'Kniha 22', '58.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(23, 'Kniha 23', '56.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
-(24, 'Kniha 24', '33.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
 (25, 'Kniha 25', '22.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
 (26, 'Kniha 26', '53.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
 (27, 'Kniha 27', '50.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 0),
@@ -242,21 +220,24 @@ INSERT INTO `products` (`id`, `title`, `price`, `description`, `excerpt`, `autho
 (88, 'Kniha 88', '73.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
 (89, 'Kniha 89', '46.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
 (90, 'Kniha 90', '51.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(91, 'Kniha 91', '18.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
 (92, 'Kniha 92', '32.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(93, 'Kniha 93', '15.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
 (94, 'Kniha 94', '57.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(95, 'Kniha 95', '56.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
+(95, 'Kniha 95', '56.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
 (96, 'Kniha 96', '54.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(97, 'Kniha 97', '59.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
+(97, 'Kniha 97', '59.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
 (98, 'Kniha 98', '24.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(99, 'Kniha 99', '22.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(100, 'Kniha 100', '26.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 3, 1),
-(105, 'sdf', '1.00', '', '', 1, 0),
-(113, 'test', '1000.00', '', '', 1, 0),
-(114, 'test', '555.00', '', '', 1, 0),
-(115, 'zc', '3.00', '', '', 1, 0),
-(116, 'zc', '3.00', '', '', 1, 0);
+(99, 'Kniha 99', '22.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
+(100, 'Kniha 100', '26.00', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Lorem ipsum dolor sit amet...', 1, 1),
+(130, 'gdd', '99999999.99', '', '', 1, 0),
+(131, 'gdd', '99999999.99', '', '', 1, 0),
+(132, 'gdd', '99999999.99', '', '', 1, 0),
+(133, 'gdd', '99999999.99', '', '', 1, 0),
+(134, 'gdd', '99999999.99', '', '', 1, 0),
+(135, 'gdd', '99999999.99', '', '', 1, 0),
+(166, 'testtttt', '878787.00', '', '', 1, 0),
+(172, 'sfsd', '456454.00', 'dfdgdfg', '', 1, 0),
+(178, 'Otec ma zderie tak ci tak', '22.00', 'Lorem ipsum lorem ipsummmmmm', '', 1, 0),
+(180, 'testere', '54.00', 'fhfhfg', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -270,16 +251,17 @@ CREATE TABLE `users` (
   `email` varchar(125) COLLATE utf8mb4_slovak_ci NOT NULL,
   `pass` varchar(60) COLLATE utf8mb4_slovak_ci NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_slovak_ci NOT NULL,
-  `date` int(11) NOT NULL
+  `date` int(11) NOT NULL,
+  `privileges` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_slovak_ci;
 
 --
 -- Sťahujem dáta pre tabuľku `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `pass`, `address`, `date`) VALUES
-(4, 'apredsa', 'apredsa@gmail.com', '$2y$10$pBM6LZjdN/uXCcE8c5wl2.650l0tB1XRRdnZsjNHomwXp9zoxbOlW', 'Tulipanovo Duhova  339', 1496948069),
-(5, 'tester', 'fff@gmail.com', '$2y$10$w3rsJ7UYAFJzYqNinwfxMuMHQxVin5u/DED6aQcehLVE6P74XcXXy', 'adresaaaaa 33333', 1497724900);
+INSERT INTO `users` (`id`, `name`, `email`, `pass`, `address`, `date`, `privileges`) VALUES
+(4, 'apredsa', 'one@gmail.com', '$2y$10$pBM6LZjdN/uXCcE8c5wl2.650l0tB1XRRdnZsjNHomwXp9zoxbOlW', 'Tulipanovo Duhova  339', 1496948069, 1),
+(5, 'tester', 'fff@gmail.com', '$2y$10$w3rsJ7UYAFJzYqNinwfxMuMHQxVin5u/DED6aQcehLVE6P74XcXXy', 'adresaaaaa 33333', 1497724900, 0);
 
 --
 -- Kľúče pre exportované tabuľky
